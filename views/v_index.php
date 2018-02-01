@@ -23,7 +23,7 @@
             <!-- Partie gauche -->
             <div class="col-md-3 col-xs-3" style="background-color: #2a2b2b; color: white; height: 800px;">
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: black; height: 760px; margin-top: 20px;">
-                    <h1 style="color:white;">Div commentaires</h1>
+                    <h1 style="color:white;">Div commentaire</h1>
                 </div>
             </div>
 

@@ -11,7 +11,7 @@
         <title>MUtube</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css" >
         <link rel="icon" href="" />
     </head>
     <body class='container'>
@@ -22,7 +22,7 @@
         </style></noscript>
         <div class="col-md-12 col-xs-12">
             <?php include 'views/v_nav.php'; ?>
-            
+
         </div>
         <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -34,5 +34,3 @@
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
-
-

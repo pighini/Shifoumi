@@ -4,8 +4,8 @@
         <title>Shifumi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css" href="./css/shifumi.css" >
+        <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css" href="./assets/css/shifumi.css" >
         <link rel="icon" href="" />
     </head>
     <body class='container col-md-12 col-xs-12'>
@@ -16,7 +16,8 @@
         </style></noscript>
         <div class="col-md-12 col-xs-12">
             <?php include 'views/v_nav.php'; ?>
-
+            <div class="col-md-2 col-xs-2"></div>
+<div class="col-md-8 col-xs-8">
             <ul class="nav nav-pills" >
                 <li><a data-toggle="pill" href="#login" style="color: white; text-decoration: none;" onmouseover="this.style.color='white'; this.style.background='#419222';" onmouseout="this.style.color='white'; this.style.background='none'">Login</a></li>
                 <li><a data-toggle="pill" href="#create" style="color: white; text-decoration: none;" onmouseover="this.style.color='white'; this.style.background='#419222';" onmouseout="this.style.color='white'; this.style.background='none'">Create account</a></li>
@@ -29,15 +30,15 @@
                             <!-- Form Name -->
                             <legend style="color: white;">Login</legend>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>  
-                                <div class="col-md-4">
+                                <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
+                                <div class="col-md-6">
                                     <input id="nom" name="username" type="text" placeholder="Your username" class="form-control" required="">
                                 </div>
                             </div>
                             <!-- Password input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="pwd" style="color: white;">Password</label>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <input id="mdp" name="pwd" type="password" placeholder="Your password" class="form-control" required="">
                                 </div>
                             </div>
@@ -61,13 +62,13 @@
                             <!-- Form Name -->
                             <legend style="color: white;">Create account</legend>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>  
+                                <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
                                 <div class="col-md-6">
                                     <input id="nom" name="username" type="text" placeholder="Your username" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="email" style="color: white;">Email</label>  
+                                <label class="col-md-4 control-label" for="email" style="color: white;">Email</label>
                                 <div class="col-md-6">
                                     <input id="email" name="email" type="email" placeholder="Your email" class="form-control input-md" required="">
                                 </div>
@@ -101,7 +102,7 @@
                 </div>
             </div>
 
-
+</div>
         </div>
 
         <!-- Bootstrap core JavaScript
@@ -114,5 +115,3 @@
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
-
-

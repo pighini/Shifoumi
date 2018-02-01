@@ -4,12 +4,12 @@
         <title>Shifumi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css" >
         <link rel="icon" href="" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="./css/shifumi.css" >
+        <link rel="stylesheet" type="text/css" href="./assets/css/shifumi.css" >
     </head>
     <body class='container col-md-12 col-xs-12'>
         <noscript><p>Please enable javascript for this site to work properly</p><style>
@@ -44,15 +44,25 @@
                             <form method="post">
                                 <fieldset>
                                     <legend style="color:white;">One point bet</legend>
-                                    <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px;">
-                                    <input type="number" style="text-align: center; color: black; margin-left: 25%;">
-                                    <label>Ciseaux</label>
-                                    <input type="radio" name="choice">
-                                    <label>Pierre</label>
-                                    <input type="radio" name="choice">
-                                    <label>Feuille</label>
-                                    <input type="radio" name="choice">
-                                    <input id="submit" name="submitR" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #419222; border: none; float: right; width:200px; height: 50px;">
+                                    <div class="col-md-3 col-xs-3">
+                                      <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px; font-size: 30px;">
+                                    </div>
+                                      <div class="col-md-3 col-xs-3" style="text-align: center;">
+                                        <label for="amount">Amount</label>
+                                        <input type="number" style="text-align: center; color: black;" name="amount" id="amount"><br><br>
+                                        <label for="rock">Rock</label>
+                                        <input type="radio" name="choice" id="rock">
+                                        <label for="paper">Paper</label>
+                                        <input type="radio" name="choice" id="paper">
+                                        <label for="scissors">Scissors</label>
+                                        <input type="radio" name="choice" id="scissors">
+                                      </div>
+                                      <div class="col-md-3 col-xs-3" style="text-align: center;">
+                                        <h1>Benefit : X</h1>
+                                      </div>
+                                    <div class="col-md-3 col-xs-3">
+                                      <input id="submit" name="submitR" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px;">
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>
@@ -60,9 +70,19 @@
                           <form method="post">
                               <fieldset>
                                   <legend style="color:white;">Game bet</legend>
-                                  <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px;">
-                                  <input type="number" style="text-align: center;">
-                                  <input id="submit" name="submitR" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #419222; border: none; float: right; width:200px; height: 50px;">
+                                  <div class="col-md-3 col-xs-3">
+                                    <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px; font-size: 30px;">
+                                  </div>
+                                    <div class="col-md-3 col-xs-3" style="text-align: center;">
+                                      <label for="amount">Amount</label>
+                                      <input type="number" style="text-align: center; color: black;" name="amount" id="amount">
+                                    </div>
+                                    <div class="col-md-3 col-xs-3" style="text-align: center;">
+                                      <h1>Benefit : X</h1>
+                                    </div>
+                                  <div class="col-md-3 col-xs-3">
+                                    <input id="submit" name="submitR" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px;">
+                                  </div>
                               </fieldset>
                           </form>
                         </div>

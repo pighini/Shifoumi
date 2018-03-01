@@ -30,8 +30,8 @@
             <?php //} else { ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-toggle="pill" href="#create" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Create Account</a></li>
-                    <li><a data-toggle="pill" href="#login" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Login</a></li>
+                    <li><a href="c_showLogin.php" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Create Account</a></li>
+                    <li><a href="c_showLogin.php" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Login</a></li>
                 </ul>
             <?php //} ?>
         </div>

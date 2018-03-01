@@ -1,59 +1,65 @@
-function Anim(optionGauche, optionDroite) {
   // Définition des variables globales
-  var canvas  = document.getElementById("game");
-  var ctx     = canvas.getContext("2d");
+var canvas  = document.getElementById("game");
+var ctx     = canvas.getContext("2d");
+
+var posY = 100;
+
+var MainGauche = new Image();
+var MainDroite = new Image();
+var MainMoveG = new Image();
+var MainMoveD = new Image();
+
+var timer = setInterval(Display, 10);
+
+function Anim(optionGauche, optionDroite) {
 
   var directory = "assets/images/";
   var type = ".png";
 
-  var MainGauche = new Image();
   MainGauche.src = directory.concat(optionGauche.concat(type));
-
-  var MainDroite = new Image();
   MainDroite.src = directory.concat(optionDroite.concat(type));
-    
-
-  var MainMoveG = new Image();
   MainMoveG.src = directory.concat("move".concat(type));
-
-  var MainMoveD = new Image();
   MainMoveD.src = directory.concat("move".concat(type));
 
 
-  var posY = 100;
-    
-    
-
-   function down() {
-   ctx.clearRect(20, posY, 50, 50);
-   ctx.clearRect(330, posY, 50, 50);
-
-   posY = posY + 1;
-
-   ctx.drawImage(MainMoveD, 20, posY);
-   ctx.drawImage(MainMoveG, 330, posY);
-
- }
-    
- function up() {
-   ctx.clearRect(20, posY, 50, 50);
-   ctx.clearRect(330, posY, 50, 50);
-
-   posY = posY - 1;
-
-   ctx.drawImage(MainMoveD, 20, posY);
-   ctx.drawImage(MainMoveG, 330, posY);
-    
 }
-    
-for (var iter = 0; iter < 3; iter++) 
-{
-    for (var cpt1 = 0, cpt1 < 50; cpt1++)
-    {
-        down();
-    }
-    for (var cpt2 = 0, cpt2< 50; cpt2++)
-    {
-        up();
-    }  
-} 
+
+var handLeft = Hand(20, 10, 1, MainMoveG);
+var handRight = Hand(20, 240, 1, MainMoveD);
+var cpt = 0;
+
+function Display(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  handLeft.deplacer();
+  handLeft.displayImg();
+
+  handRight.deplacer();
+  handRight.displayImg();
+
+  if (cpt >= 50) {
+    handLeft.vy = -handLeft.vy
+    handRight.vy = -handRight.vy;
+    cpt=0;
+  }
+  cpt++;
+}
+
+
+function Hand(apy, apx, avy, aimg){
+	var sprite = {
+		 py: apy,
+     px: apx,
+		 vy: avy,
+	   img : aimg,
+
+		deplacer:function(){
+	     	    this.py += this.vy;
+			},
+
+			displayImg:function(){
+				ctx.drawImage(this.img, this.px, this.py)
+			},
+	}
+	return sprite
+}

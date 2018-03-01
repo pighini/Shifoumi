@@ -39,6 +39,7 @@
 
             <!-- Partie droite -->
             <div class="col-md-9 col-xs-9" style="background-color: #2a2b2b; color: white; height: 800px;">
+              <button onclick="Anim('leaf','scissor');">Click Me</button>
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: black; height: 560px; margin-top: 20px;">
                     <canvas id="game" class="col-md-12 col-xs-12" style="background-color: #419222; margin-top : 15px; height: 530px;"></canvas><br>
                 </div>

@@ -72,4 +72,9 @@ function makeABet($amount , $id)
         ));
 
   }
+
+  function haveWonPoint($choice, $shape,)
+  {
+
+  }
 ?>

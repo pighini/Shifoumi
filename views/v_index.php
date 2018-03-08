@@ -23,8 +23,11 @@
             <!-- Partie gauche -->
             <div class="col-md-3 col-xs-3" style="background-color: #2a2b2b; color: white; height: 800px;">
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 760px; margin-top: 20px;">
-                  <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 600px; margin-top: 20px;">
-
+                   <div class="col-md-12 col-xs-12">
+                     coucou
+                     <hr>
+                   </div>
+                  <!--<div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 600px; margin-top: 20px;">
                   </div>
                   <form class="form-inline" style="margin-bottom: 25px;">
                     <div class="form-group mx-sm-3 mb-3">
@@ -33,13 +36,13 @@
                     <button type="submit" class="btn btn-primary mb-2">
                       <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                     </button>
-                  </form>
+                  </form>-->
                </div>
             </div>
 
             <!-- Partie droite -->
             <div class="col-md-9 col-xs-9" style="background-color: #2a2b2b; color: white; height: 800px;">
-              <button onclick="Anim('leaf','scissor');">Click Me</button>
+            <!--  <button onclick="Anim('leaf','scissor');">Click Me</button>-->
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: black; height: 560px; margin-top: 20px;">
                     <canvas id="game" class="col-md-12 col-xs-12" style="background-color: #419222; margin-top : 15px; height: 530px;"></canvas><br>
                 </div>

@@ -1,6 +1,6 @@
-  // Définition des variables globales
-var canvas  = document.getElementById("game");
-var ctx     = canvas.getContext("2d");
+// Définition des variables globales
+var canvas = document.getElementById("game");
+var ctx = canvas.getContext("2d");
 
 var posY = 100;
 
@@ -9,57 +9,83 @@ var MainDroite = new Image();
 var MainMoveG = new Image();
 var MainMoveD = new Image();
 
-var timer = setInterval(Display, 10);
+var timer;
+var handLeft;
+var handRight;
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 function Anim(optionGauche, optionDroite) {
-
-  var directory = "assets/images/";
-  var type = ".png";
-
-  MainGauche.src = directory.concat(optionGauche.concat(type));
-  MainDroite.src = directory.concat(optionDroite.concat(type));
-  MainMoveG.src = directory.concat("move".concat(type));
-  MainMoveD.src = directory.concat("move".concat(type));
-
-
+    
+    timer = setInterval(Display, 10);
+    var imgNames = ['leaf', 'scissor', 'rock'];
+    var imgNameL = imgNames[getRandomInt(imgNames.length)];
+    var imgNameR = imgNames[getRandomInt(imgNames.length)];
+    var directory = "assets/images/";
+    var type = ".png";
+    
+    MainGauche.src = directory.concat(imgNameL.concat(type));
+    MainDroite.src = directory.concat(imgNameR.concat(type));
+    MainMoveG.src = directory.concat("move".concat(type));
+    MainMoveD.src = directory.concat("move".concat(type));
+    
+    handLeft = Hand(20, 10, 1, MainMoveG);
+    handRight = Hand(20, 240, 1, MainMoveD);
 }
 
-var handLeft = Hand(20, 10, 1, MainMoveG);
-var handRight = Hand(20, 240, 1, MainMoveD);
+
 var cpt = 0;
 
-function Display(){
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function Display() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  handLeft.deplacer();
-  handLeft.displayImg();
+    if (cpt <= 325) {
+        handLeft.deplacer();
+        handLeft.displayImg();
 
-  handRight.deplacer();
-  handRight.displayImg();
+        handRight.deplacer();
+        handRight.displayImg();
+    }
+    else{
+        clearInterval(timer);
+        handLeft.changeImage(MainGauche);
+        handRight.changeImage(MainDroite);        
+        handLeft.displayImg();
+        handRight.displayImg();
+        cpt = 0;
+    }
 
-  if (cpt >= 50) {
-    handLeft.vy = -handLeft.vy
-    handRight.vy = -handRight.vy;
-    cpt=0;
-  }
-  cpt++;
+
+    if (cpt % 50 === 0 && cpt != 0) {
+        handLeft.vy = -handLeft.vy;
+        handRight.vy = -handRight.vy;
+    }
+
+
+    cpt++;
 }
 
 
-function Hand(apy, apx, avy, aimg){
-	var sprite = {
-		 py: apy,
-     px: apx,
-		 vy: avy,
-	   img : aimg,
+function Hand(apy, apx, avy, aimg) {
+    var sprite = {
+        py: apy,
+        px: apx,
+        vy: avy,
+        img: aimg,
 
-		deplacer:function(){
-	     	    this.py += this.vy;
-			},
+        deplacer: function () {
+            this.py += this.vy;
+        },
 
-			displayImg:function(){
-				ctx.drawImage(this.img, this.px, this.py)
-			},
-	}
-	return sprite
+        displayImg: function () {
+            ctx.drawImage(this.img, this.px, this.py)
+        },
+        
+        changeImage: function (option) {
+            this.img = option;
+        }
+    }
+    return sprite;
 }

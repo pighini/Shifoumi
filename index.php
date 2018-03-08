@@ -6,10 +6,8 @@ if (!isset($_SESSION["logue"])) {
     $_SESSION["logue"] = false;
 }
 
-/*$usersList = getUsers();*/
-
 require_once 'model/fonctions.php';
-
+$usersList = getBestUsers();
 
 require_once 'views/v_index.php';
 ?>

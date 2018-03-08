@@ -11,3 +11,8 @@ and open the template in the editor.
 body{
     background-color: #1b2021;
 }
+
+#tableBestPlayer
+{
+    margin-top: 10px;
+}

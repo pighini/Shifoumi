@@ -47,6 +47,13 @@ function checkUserAuthentification($pseudo, $pwd){
     return $request->fetch()[0]!=0;
 }
 
+function getBestUsers() {    
+    $db = connectDb();
+    $sql = "SELECT `username`, `balance` FROM `users` ORDER BY `balance` DESC LIMIT 10";
+    $request = $db->query($sql);
+    return $request;
+}
+
 function newGame()
 {
 

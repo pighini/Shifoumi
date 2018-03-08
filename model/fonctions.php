@@ -2,18 +2,18 @@
 
 require_once 'dbConnection.php';
 
-function usernameAvailable($pseudo){
-    $db = MyPdo();
+function usernameAvailable($username){
+    $db = myPdo();
     $request = $db->prepare("SELECT * FROM users WHERE username = :username");
-    $request->execute(array('username' => $pseudo));
+    $request->execute(array('username' => $username));
 
     return ($request->rowCount() > 0);
 }
 function addUser($username, $emailUser ,$pwd, $balance){
-    $db = MyPdo();
+    $db = myPdo();
     $userN = $username;
     $email = $emailUser;
-    $password = $pwd;
+    $password = sha1($pwd);
     $balance = $balanceUser;
     $request = $db->prepare("INSERT INTO users(`username`, `email`, `password`,  `balance`)
             VALUES(:userN , :email, :password, :balance)");
@@ -26,25 +26,25 @@ function addUser($username, $emailUser ,$pwd, $balance){
 }
 
 function emailExist($email){
-  $db = MyPdo();
+  $db = myPdo();
   $request = $db->prepare("SELECT * FROM users WHERE email = :email");
   $request->execute(array('email' => $email));
 
   return ($request->rowCount() > 0);
 }
 
-function checkUserAuthentification($pseudo, $pwd){
-    $db = MyPdo();
-    $password = $pwd;
-    $sql = "SELECT count(*) FROM users WHERE username = :username AND password = :password ";
+function checkUserAuthentification($username, $pwd){
+    $db = myPdo();
+    $password = sha1($pwd);
+    $sql = "SELECT count(*) FROM users WHERE username = :username AND password = :password";
     $request = $db->prepare($sql);
     $request->execute(
       array(
-        'pseudo' => $pseudo,
+        'username' => $username,
         'password' => $password
     ));
 
-    return $request->fetch()[0]!=0;
+    return $request->fetch()[0] != 0;
 }
 
 function newGame()

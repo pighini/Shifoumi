@@ -23,10 +23,12 @@
             <!-- Partie gauche -->
             <div class="col-md-3 col-xs-3" style="background-color: #2a2b2b; color: white; height: 800px;">
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 760px; margin-top: 20px;">
-                   <div class="col-md-12 col-xs-12">
-                     coucou
-                     <hr>
-                   </div>
+                     <?php ?>
+                      <div class="col-md-12 col-xs-12">
+                        <img src=""/>
+
+                      </div>
+                    <?php  ?>
                   <!--<div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 600px; margin-top: 20px;">
                   </div>
                   <form class="form-inline" style="margin-bottom: 25px;">
@@ -42,9 +44,9 @@
 
             <!-- Partie droite -->
             <div class="col-md-9 col-xs-9" style="background-color: #2a2b2b; color: white; height: 800px;">
-            <!--  <button onclick="Anim('leaf','scissor');">Click Me</button>-->
+
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: black; height: 560px; margin-top: 20px;">
-                    <canvas id="game" class="col-md-12 col-xs-12" style="background-color: #419222; margin-top : 15px; height: 530px;"></canvas><br>
+                  <canvas id="game" class="col-md-12 col-xs-12" style="background-color: #419222; margin-top : 15px; height: 530px;"></canvas><br>
                 </div>
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; margin-top: 20px; height: 180px;">
                     <ul class="nav nav-pills">
@@ -53,15 +55,20 @@
                     </ul>
                     <div class="tab-content">
                         <div id="onePointBet" class="tab-pane fade in active">
-                            <form method="post">
+                            <!-- <form method="post"> -->
                                 <fieldset>
                                     <legend style="color:white;">One point bet</legend>
-                                    <div class="col-md-3 col-xs-3">
-                                      <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px; font-size: 30px;">
+                                    <div class="col-md-3 col-xs-12">
+                                      <button onclick="Anim('leaf','scissor');" formmethod="post" name="betPointLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
                                     </div>
-                                      <div class="col-md-3 col-xs-3" style="text-align: center;">
-                                        <label for="amount">Amount</label>
-                                        <input type="number" style="text-align: center; color: black;" name="amount" id="amount">
+                                      <div class="col-md-3 col-xs-12" style="text-align: center;">
+                                        <button type="submit" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
+                                          <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                        </button>
+                                        <input type="text" style="text-align: center; color: black; font-weight: bold; width: 100px;" name="amount" id="amount" readonly value="500">
+                                        <button type="submit" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
+                                          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        </button>
                                         <br><br>
                                         <label for="rock">Rock</label>
                                         <input type="radio" name="choice" id="rock">
@@ -70,14 +77,14 @@
                                         <label for="scissors">Scissors</label>
                                         <input type="radio" name="choice" id="scissors">
                                       </div>
-                                      <div class="col-md-3 col-xs-3" style="text-align: center;">
+                                      <div class="col-md-3 col-xs-12" style="text-align: center;">
                                         <h1>Benefit : X</h1>
                                       </div>
-                                    <div class="col-md-3 col-xs-3">
-                                      <input id="submit" name="submitR" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px;">
+                                    <div class="col-md-3 col-xs-12">
+                                      <button onclick="Anim('leaf','scissor');" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
                                     </div>
                                 </fieldset>
-                            </form>
+                            <!-- </form> -->
                         </div>
                         <div id="gameBet" class="tab-pane fade">
                           <form method="post">
@@ -87,8 +94,13 @@
                                     <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px; font-size: 30px;">
                                   </div>
                                     <div class="col-md-3 col-xs-3" style="text-align: center;">
-                                      <label for="amount">Amount</label>
-                                      <input type="number" style="text-align: center; color: black;" name="amount" id="amount">
+                                      <button type="submit" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
+                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                      </button>
+                                      <input type="text" style="text-align: center; color: black;" name="amount" id="amount" readonly>
+                                      <button type="submit" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                      </button>
                                     </div>
                                     <div class="col-md-3 col-xs-3" style="text-align: center;">
                                       <h1>Benefit : X</h1>

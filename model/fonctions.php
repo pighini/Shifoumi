@@ -9,19 +9,19 @@ function usernameAvailable($username){
 
     return ($request->rowCount() > 0);
 }
-function addUser($username, $emailUser ,$pwd, $balance){
+function addUser($username, $emailUser ,$pwd, $balanceUser){
     $db = myPdo();
     $userN = $username;
     $email = $emailUser;
     $password = sha1($pwd);
     $balance = $balanceUser;
-    $request = $db->prepare("INSERT INTO users(`username`, `email`, `password`,  `balance`)
+    $request = $db->prepare("INSERT INTO users(username, email, password,  balance)
             VALUES(:userN , :email, :password, :balance)");
     $request->execute(array(
-        'username' => $userN,
+        'userN' => $userN,
         'password' => $password,
         'email' => $email,
-        'balance' => $balanceUser
+        'balance' => $balance
    ));
 }
 
@@ -47,7 +47,7 @@ function checkUserAuthentification($username, $pwd){
     return $request->fetch()[0] != 0;
 }
 
-function getBestUsers() {    
+function getBestUsers() {
     $db = connectDb();
     $sql = "SELECT `username`, `balance` FROM `users` ORDER BY `balance` DESC LIMIT 10";
     $request = $db->query($sql);

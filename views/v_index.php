@@ -97,7 +97,7 @@
                                       <button type="submit" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
                                         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                       </button>
-                                      <input type="text" style="text-align: center; color: black;" name="amount" id="amount" readonly>
+                                      <input type="text" style="text-align: center; color: black; font-weight: bold; width: 100px;" name="amount" id="amount" readonly value="500">
                                       <button type="submit" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
                                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                       </button>

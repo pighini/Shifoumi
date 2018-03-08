@@ -59,5 +59,18 @@ function chooseShape()
 function makeABet()
 {
 
-}
+    $db = MyPdo();
+    $userN = $username;
+    $email = $emailUser;
+    $password = $pwd;
+    $balance = $balanceUser;
+    $request = $db->prepare("INSERT INTO users(`username`, `email`, `password`,  `balance`)
+            VALUES(:userN , :email, :password, :balance)");
+    $request->execute(array(
+        'username' => $userN,
+        'password' => $password,
+        'email' => $email,
+        'balance' => $balanceUser
+        ));
+  }
 ?>

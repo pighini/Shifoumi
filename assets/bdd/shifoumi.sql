@@ -1,76 +1,54 @@
-#        Script MySQL.
-#------------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.1.4
+-- http://www.phpmyadmin.net
+--
+-- Client :  127.0.0.1
+-- Généré le :  Jeu 08 Mars 2018 à 15:17
+-- Version du serveur :  5.6.15-log
+-- Version de PHP :  5.4.24
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
-#------------------------------------------------------------
-# Table: users
-#------------------------------------------------------------
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE TABLE users(
-        idUser   int (11) Auto_increment  NOT NULL ,
-        username Varchar (25) NOT NULL ,
-        email    Varchar (35) NOT NULL ,
-        password Char (40) ,
-        avatar   Blob ,
-        balance  BigInt NOT NULL ,
-        PRIMARY KEY (idUser )
-)ENGINE=InnoDB;
+--
+-- Base de données :  `shifoumi`
+--
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: games
-#------------------------------------------------------------
+--
+-- Structure de la table `bets`
+--
 
-CREATE TABLE games(
-        idGame  int (11) Auto_increment  NOT NULL ,
-        pointsL Int NOT NULL ,
-        pointsR Int NOT NULL ,
-        PRIMARY KEY (idGame )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `bets` (
+  `idBet` int(11) NOT NULL AUTO_INCREMENT,
+  `Amount` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  PRIMARY KEY (`idBet`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: draws
-#------------------------------------------------------------
+--
+-- Structure de la table `users`
+--
 
-CREATE TABLE draws(
-        idDraw       int (11) Auto_increment  NOT NULL ,
-        dateTimeDraw Datetime NOT NULL ,
-        choiceLeft   Char (1) NOT NULL ,
-        choiceRight  Char (1) NOT NULL ,
-        idGame       Int NOT NULL ,
-        PRIMARY KEY (idDraw )
-)ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS `users` (
+  `idUser` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(25) NOT NULL,
+  `email` varchar(35) NOT NULL,
+  `password` char(40) DEFAULT NULL,
+  `avatar` blob,
+  `balance` bigint(20) NOT NULL,
+  PRIMARY KEY (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-
-#------------------------------------------------------------
-# Table: comments
-#------------------------------------------------------------
-
-CREATE TABLE comments(
-        idComment   int (11) Auto_increment  NOT NULL ,
-        message     Varchar (200) NOT NULL ,
-        dateComment Datetime NOT NULL ,
-        idUser      Int NOT NULL ,
-        PRIMARY KEY (idComment )
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: bets
-#------------------------------------------------------------
-
-CREATE TABLE bets(
-        idBet        int (11) Auto_increment  NOT NULL ,
-        amountBet    Int NOT NULL ,
-        choiceHand   Char (1) NOT NULL ,
-        choiceSymbol Char (1) NOT NULL ,
-        idUser       Int NOT NULL ,
-        idDraw       Int NOT NULL ,
-        PRIMARY KEY (idBet )
-)ENGINE=InnoDB;
-
-ALTER TABLE draws ADD CONSTRAINT FK_draws_idGame FOREIGN KEY (idGame) REFERENCES games(idGame);
-ALTER TABLE comments ADD CONSTRAINT FK_comments_idUser FOREIGN KEY (idUser) REFERENCES users(idUser);
-ALTER TABLE bets ADD CONSTRAINT FK_bets_idUser FOREIGN KEY (idUser) REFERENCES users(idUser);
-ALTER TABLE bets ADD CONSTRAINT FK_bets_idDraw FOREIGN KEY (idDraw) REFERENCES draws(idDraw);
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

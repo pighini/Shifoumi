@@ -32,22 +32,28 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
                                 <div class="col-md-6">
-                                    <input id="nom" name="username" type="text" placeholder="Your username" class="form-control" required="">
+                                    <input id="username" name="username" type="text" placeholder="Your username" class="form-control" required="">
                                 </div>
                             </div>
                             <!-- Password input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="pwd" style="color: white;">Password</label>
                                 <div class="col-md-6">
-                                    <input id="mdp" name="pwd" type="password" placeholder="Your password" class="form-control" required="">
+                                    <input id="pwd" name="pwd" type="password" placeholder="Your password" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="submit"></label>
                                 <div class="col-md-8">
-                                    <input id="submit" name="submit" type="submit" class="btn btn-primary" value="Login" style="background-color: #419222; border: none;">
+                                    <input id="submit" name="submitLogin" type="submit" class="btn btn-primary" value="Login" style="background-color: #419222; border: none;">
                                 </div>
                             </div>
+                            <?php if (!(empty($errorMessage))) { ?>
+                                  <div class="alert alert-danger alert-dismissable">
+                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                      <strong><?php echo $errorMessage; ?></strong>
+                                  </div>
+                              <?php } ?>
                         </fieldset>
                     </form>
                     <?php if (!empty($msgErreur)) { ?>
@@ -62,34 +68,34 @@
                             <!-- Form Name -->
                             <legend style="color: white;">Create account</legend>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
+                                <label class="col-md-4 control-label" for="usernameN" style="color: white;">Username</label>
                                 <div class="col-md-6">
-                                    <input id="nom" name="username" type="text" placeholder="Your username" class="form-control input-md" required="">
+                                    <input id="usernameN" name="usernameN" type="text" placeholder="Your username" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="email" style="color: white;">Email</label>
+                                <label class="col-md-4 control-label" for="emailN" style="color: white;">Email</label>
                                 <div class="col-md-6">
-                                    <input id="email" name="email" type="email" placeholder="Your email" class="form-control input-md" required="">
+                                    <input id="emailN" name="email" type="emailN" placeholder="Your email" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <!-- Password input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="pwd" style="color: white;">Password</label>
+                                <label class="col-md-4 control-label" for="pwdN" style="color: white;">Password</label>
                                 <div class="col-md-6">
-                                    <input id="mdp" name="pwd" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                    <input id="pwdN" name="pwdN" type="password" placeholder="Your password" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="rePwd" style="color: white;">Repeat password</label>
+                                <label class="col-md-4 control-label" for="rePwdN" style="color: white;">Repeat password</label>
                                 <div class="col-md-6">
-                                    <input id="reMdp" name="rePwd" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                    <input id="rePwdN" name="rePwdN" type="password" placeholder="Your password" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="submit"></label>
                                 <div class="col-md-8">
-                                    <input id="submit" name="submit" type="submit" class="btn btn-primary" value="Create account" style="background-color: #419222; border: none;">
+                                    <input id="submit" name="submitNew" type="submit" class="btn btn-primary" value="Create account" style="background-color: #419222; border: none;">
                                 </div>
                             </div>
                         </fieldset>

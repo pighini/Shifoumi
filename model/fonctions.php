@@ -2,10 +2,10 @@
 
 require_once 'dbConnection.php';
 
-function usernameAvailable($pseudo){
-    $db = MyPdo();
+function usernameAvailable($username){
+    $db = myPdo();
     $request = $db->prepare("SELECT * FROM users WHERE username = :username");
-    $request->execute(array('username' => $pseudo));
+    $request->execute(array('username' => $username));
 
     return ($request->rowCount() > 0);
 }
@@ -26,21 +26,21 @@ function addUser($username, $emailUser ,$pwd, $balanceUser){
 }
 
 function emailExist($email){
-  $db = MyPdo();
+  $db = myPdo();
   $request = $db->prepare("SELECT * FROM users WHERE email = :email");
   $request->execute(array('email' => $email));
 
   return ($request->rowCount() > 0);
 }
 
-function checkUserAuthentification($pseudo, $pwd){
-    $db = MyPdo();
+function checkUserAuthentification($username, $pwd){
+    $db = myPdo();
     $password = $pwd;
     $sql = "SELECT count(*) FROM users WHERE username = :username AND password = :password ";
     $request = $db->prepare($sql);
     $request->execute(
       array(
-        'pseudo' => $pseudo,
+        'username' => $username,
         'password' => $password
     ));
 
@@ -65,8 +65,7 @@ function chooseShape()
 }
 function makeABet($amount , $id)
 {
-
-    $db = MyPdo();
+    $db = myPdo();
     $userN = $username;
     $email = $emailUser;
     $password = $pwd;
@@ -77,7 +76,6 @@ function makeABet($amount , $id)
         'amount' => $amount,
         'idUser' => $id
         ));
-
   }
 
   function haveWonPoint($choice, $shape,)

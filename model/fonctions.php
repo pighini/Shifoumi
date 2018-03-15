@@ -54,12 +54,21 @@ function getBestUsers() {
     return $request;
 }
 
-function newGame()
+function checkBalance($amount, $id)
 {
-
+ $balance = getBalance($amount, $id);
+ if(amount > $balance)
+ {
+   return true;
+ }
+ else {
+   {
+     return false;
+   }
+ }
 
 }
-function checkBalance($amount, $id)
+function getBalance($id)
 {
 
 $db = myPdo();
@@ -67,33 +76,80 @@ $userN = $username;
 $email = $emailUser;
 $password = $pwd;
 $balance = $balanceUser;
-$request = $db->prepare("SELECT balance FROM `users` WHERE `idUser` = $id");
+$request = $db->prepare("SELECT balance FROM `users` WHERE `idUser` = :id");
 $request->execute(array(
-    'amount' => $amount,
-    'idUser' => $id
+    'id' => $id
     ));
 
-return;
+return $request;
 }
-function hasWon()
+function hasWon($choicePlayer, $winner)
 {
+if($choicePlayer == $winner )
+{
+  return true;
+}
+else{
+  return false;
+}
+}
+
+function giveReward($id, $amount)
+{
+
+  $db = myPdo();
+  $totBalance = getBalance($id) + 2*$amount ;
+  $request = $db->prepare("UPDATE users SET balance= :balance WHERE idUser = :id"  );
+  $request->execute(array(
+      'balance' => $totBalance,
+      'id'=> $id
+      ));
 
 }
 function insertBet($amount , $id)
 {
+
     $db = myPdo();
     $userN = $username;
     $email = $emailUser;
     $password = $pwd;
     $balance = $balanceUser;
     $request = $db->prepare("INSERT INTO bets(`amount`, `idUser`)
-            VALUES(:amount , :email)");
+            VALUES(:amount , :id)");
     $request->execute(array(
         'amount' => $amount,
-        'idUser' => $id
+        'id' => $id
         ));
+  }
+function removeBetAmount($amount , $id)
+{
+  $db = myPdo();
+  $totBalance = getBalance($id) - $amount ;
+  $request = $db->prepare("UPDATE users SET balance= :balance WHERE idUser = :id"  );
+  $request->execute(array(
+      'balance' => $totBalance,
+      'id'=> $id
+      ));
+}
+
+function chooseShape($side, $shape)
+{
+
+  $shapes  = array("rock", "leaf", "scissor");
+  $shape = $shapes[random_int(0,2)];
+  if($side == "L")
+  {
+    return $shape +"L";
+  }
+  else
+    {
+      return  $shape +"R";
+    }
   }
 
 
 
+
+
+}
 ?>

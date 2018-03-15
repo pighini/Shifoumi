@@ -134,7 +134,6 @@ function removeBetAmount($amount , $id)
 
 function chooseShape($side, $shape)
 {
-
   $shapes  = array("rock", "leaf", "scissor");
   $shape = $shapes[random_int(0,2)];
   if($side == "L")
@@ -146,10 +145,6 @@ function chooseShape($side, $shape)
       return  $shape +"R";
     }
   }
-
-
-
-
 
 }
 ?>

@@ -23,10 +23,10 @@
             <!-- Partie gauche -->
             <div class="col-md-3 col-xs-3" style="background-color: #2a2b2b; color: white; height: 800px;">
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 760px; margin-top: 20px;">
-                    <table class="table table-bordered table-hover table-fixed" id="tableBestPlayer">
+                    <table class="table" id="tableBestPlayer">
                         <thead>
-                        <th class="col-xs-1">#</th>
-                        <th class="col-xs-3">Prénom</th>
+                        <th class="col-xs-1">Username</th>
+                        <th class="col-xs-3">Balance in §</th>
                         <?php if (isset($_SESSION['pseudo'])) { ?><th class="col-xs-1">Edition</th><?php } ?>
                         </thead>
                         <?php while ($donnees = $usersList->fetch()) { ?>
@@ -59,10 +59,10 @@
                     <canvas id="game" class="col-md-12 col-xs-12" style="background-color: #419222; margin-top : 15px; height: 530px;"></canvas><br>
                 </div>
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; margin-top: 20px; height: 180px;">
-                    <ul class="nav nav-pills">
+<!--                    <ul class="nav nav-pills">
                         <li><a data-toggle="pill" href="#onePointBet" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">One point bet</a></li>
                         <li><a data-toggle="pill" href="#gameBet" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Game bet</a></li>
-                    </ul>
+                    </ul>-->
                     <div class="tab-content">
                         <div id="onePointBet" class="tab-pane fade in active">
                             <!-- <form method="post"> -->
@@ -96,7 +96,7 @@
                             </fieldset>
                             <!-- </form> -->
                         </div>
-                        <div id="gameBet" class="tab-pane fade">
+                        <!--<div id="gameBet" class="tab-pane fade">
                             <form method="post">
                                 <fieldset>
                                     <legend style="color:white;">Game bet</legend>
@@ -120,7 +120,7 @@
                                     </div>
                                 </fieldset>
                             </form>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
 

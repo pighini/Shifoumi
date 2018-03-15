@@ -15,8 +15,8 @@ $rePwd = "";
 $email = "";
 $messageL = "";
 $messageN = "";
-$new = "";
-$login ="in active";
+$new = (!empty($_GET["new"])) ? $_GET["new"] : "";
+$login = (!empty($_GET["login"])) ? $_GET["login"] : "";
 $alertStyle = "danger";
 
 if (filter_has_var(INPUT_POST, 'submitLogin')) {

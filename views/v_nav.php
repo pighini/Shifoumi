@@ -30,7 +30,8 @@
             <?php } else { ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="c_showLogin.php" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Login / Create Account</a></li>
+                    <li><a href="c_showLogin.php?new=&amp;login=in active" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Login</a></li>
+                    <li><a href="c_showLogin.php?new=in active&amp;login=" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Create Account</a></li>
                 </ul>
             <?php } ?>
         </div>

@@ -48,7 +48,7 @@ function checkUserAuthentification($username, $pwd){
 }
 
 function getBestUsers() {
-    $db = myPdo();
+    $db = MyPdo();
     $sql = "SELECT `username`, `balance` FROM `users` ORDER BY `balance` DESC LIMIT 10";
     $request = $db->query($sql);
     return $request;
@@ -59,11 +59,15 @@ function newGame()
 
 
 }
-function chooseShape()
+function makeBet($choice, $amount)
 {
 
 }
-function makeABet($amount , $id)
+function hasWon()
+{
+
+}
+function insertBet($amount , $id)
 {
     $db = myPdo();
     $userN = $username;
@@ -78,8 +82,6 @@ function makeABet($amount , $id)
         ));
   }
 
-  function haveWonPoint($choice, $shape,)
-  {
 
-  }
+
 ?>

@@ -23,7 +23,7 @@
             <!-- Partie gauche -->
             <div class="col-md-3 col-xs-3" style="background-color: #2a2b2b; color: white; height: 800px;">
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 760px; margin-top: 20px;">
-                    <table class="table table-bordered table-hover table-fixed">
+                    <table class="table table-bordered table-hover table-fixed" id="tableBestPlayer">
                         <thead>
                         <th class="col-xs-1">#</th>
                         <th class="col-xs-3">Prénom</th>

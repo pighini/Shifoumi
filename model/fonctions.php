@@ -59,9 +59,21 @@ function newGame()
 
 
 }
-function makeBet($choice, $amount)
+function checkBalance($amount, $id)
 {
 
+$db = myPdo();
+$userN = $username;
+$email = $emailUser;
+$password = $pwd;
+$balance = $balanceUser;
+$request = $db->prepare("SELECT balance FROM `users` WHERE `idUser` = $id");
+$request->execute(array(
+    'amount' => $amount,
+    'idUser' => $id
+    ));
+
+return;
 }
 function hasWon()
 {

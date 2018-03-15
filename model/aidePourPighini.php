@@ -79,8 +79,7 @@ function deleteUsers($idUser){
 
 function checkUserAuthentification($pseudo, $pwd, $salt){
     $db = connectDb();
-    $password = sha1($pwd);
-    $password = sha1($salt.$password);
+    $password = $pwd;
     $sql = "SELECT count(*) FROM Users WHERE Pseudo = :pseudo AND Pwd = :password ";
     $request = $db->prepare($sql);
     $request->execute(

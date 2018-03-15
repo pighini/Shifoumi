@@ -48,7 +48,7 @@ function checkUserAuthentification($username, $pwd){
 }
 
 function getBestUsers() {    
-    $db = connectDb();
+    $db = myPdo();
     $sql = "SELECT `username`, `balance` FROM `users` ORDER BY `balance` DESC LIMIT 10";
     $request = $db->query($sql);
     return $request;

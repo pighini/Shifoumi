@@ -9,19 +9,19 @@ function usernameAvailable($username){
 
     return ($request->rowCount() > 0);
 }
-function addUser($username, $emailUser ,$pwd, $balance){
+function addUser($username, $emailUser ,$pwd, $balanceUser){
     $db = myPdo();
     $userN = $username;
     $email = $emailUser;
-    $password = sha1($pwd);
+    $password = $pwd;
     $balance = $balanceUser;
-    $request = $db->prepare("INSERT INTO users(`username`, `email`, `password`,  `balance`)
+    $request = $db->prepare("INSERT INTO users(username, email, password,  balance)
             VALUES(:userN , :email, :password, :balance)");
     $request->execute(array(
-        'username' => $userN,
+        'userN' => $userN,
         'password' => $password,
         'email' => $email,
-        'balance' => $balanceUser
+        'balance' => $balance
    ));
 }
 
@@ -35,8 +35,8 @@ function emailExist($email){
 
 function checkUserAuthentification($username, $pwd){
     $db = myPdo();
-    $password = sha1($pwd);
-    $sql = "SELECT count(*) FROM users WHERE username = :username AND password = :password";
+    $password = $pwd;
+    $sql = "SELECT count(*) FROM users WHERE username = :username AND password = :password ";
     $request = $db->prepare($sql);
     $request->execute(
       array(
@@ -47,8 +47,8 @@ function checkUserAuthentification($username, $pwd){
     return $request->fetch()[0] != 0;
 }
 
-function getBestUsers() {    
-    $db = connectDb();
+function getBestUsers() {
+    $db = MyPdo();
     $sql = "SELECT `username`, `balance` FROM `users` ORDER BY `balance` DESC LIMIT 10";
     $request = $db->query($sql);
     return $request;
@@ -59,25 +59,29 @@ function newGame()
 
 
 }
-function chooseShape()
+function makeBet($choice, $amount)
 {
 
 }
-function makeABet()
+function hasWon()
 {
 
-    $db = MyPdo();
+}
+function insertBet($amount , $id)
+{
+    $db = myPdo();
     $userN = $username;
     $email = $emailUser;
     $password = $pwd;
     $balance = $balanceUser;
-    $request = $db->prepare("INSERT INTO users(`username`, `email`, `password`,  `balance`)
-            VALUES(:userN , :email, :password, :balance)");
+    $request = $db->prepare("INSERT INTO bets(`amount`, `idUser`)
+            VALUES(:amount , :email)");
     $request->execute(array(
-        'username' => $userN,
-        'password' => $password,
-        'email' => $email,
-        'balance' => $balanceUser
+        'amount' => $amount,
+        'idUser' => $id
         ));
   }
+
+
+
 ?>

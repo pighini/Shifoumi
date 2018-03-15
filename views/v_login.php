@@ -24,7 +24,7 @@
             </ul>
 
             <div class="tab-content">
-                <div id="login" class="tab-pane fade in active">
+                <div id="login" class="tab-pane fade <?php echo $login;?>">
                     <form class="form-horizontal" method="POST" style="margin-top: 20px;">
                         <fieldset>
                             <!-- Form Name -->
@@ -32,7 +32,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
                                 <div class="col-md-6">
-                                    <input id="username" name="username" type="text" placeholder="Your username" class="form-control" required="">
+                                    <input id="username" name="username" type="text" placeholder="Your username" class="form-control" required="" value="<?php echo $username;?>">
                                 </div>
                             </div>
                             <!-- Password input-->
@@ -48,21 +48,16 @@
                                     <input id="submit" name="submitLogin" type="submit" class="btn btn-primary" value="Login" style="background-color: #419222; border: none;">
                                 </div>
                             </div>
-                            <?php if (!(empty($errorMessage))) { ?>
-                                  <div class="alert alert-danger alert-dismissable">
+                            <?php if (!(empty($messageL))) { ?>
+                                  <div class="alert alert-<?php echo $alertStyle;?> alert-dismissable">
                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                      <strong><?php echo $errorMessage; ?></strong>
+                                      <strong><?php echo $messageL; ?></strong>
                                   </div>
                               <?php } ?>
                         </fieldset>
                     </form>
-                    <?php if (!empty($msgErreur)) { ?>
-                        <div class="alert alert-danger" style="text-align: center;">
-                            <strong><?php echo $msgErreur ?></strong>
-                        </div>
-                    <?php } ?>
                 </div>
-                <div id="create" class="tab-pane fade">
+                <div id="create" class="tab-pane fade <?php echo $new;?>">
                     <form class="form-horizontal" method="POST" style="margin-top: 20px;">
                         <fieldset>
                             <!-- Form Name -->
@@ -70,13 +65,13 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="usernameN" style="color: white;">Username</label>
                                 <div class="col-md-6">
-                                    <input id="usernameN" name="usernameN" type="text" placeholder="Your username" class="form-control input-md" required="">
+                                    <input id="usernameN" name="usernameN" type="text" placeholder="Your username" class="form-control input-md" required="" value="<?php echo $usernameN;?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="emailN" style="color: white;">Email</label>
                                 <div class="col-md-6">
-                                    <input id="emailN" name="email" type="emailN" placeholder="Your email" class="form-control input-md" required="">
+                                    <input id="emailN" name="emailN" type="email" placeholder="Your email" class="form-control input-md" required="" value="<?php echo $email;?>">
                                 </div>
                             </div>
                             <!-- Password input-->
@@ -98,13 +93,14 @@
                                     <input id="submit" name="submitNew" type="submit" class="btn btn-primary" value="Create account" style="background-color: #419222; border: none;">
                                 </div>
                             </div>
+                            <?php if (!(empty($messageN))) { ?>
+                                  <div class="alert alert-danger alert-dismissable">
+                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                      <strong><?php echo $messageN; ?></strong>
+                                  </div>
+                              <?php } ?>
                         </fieldset>
                     </form>
-                    <?php if (!empty($msgErreur)) { ?>
-                        <div class="alert alert-danger" style="text-align: center;">
-                            <strong><?php echo $msgErreur ?></strong>
-                        </div>
-                    <?php } ?>
                 </div>
             </div>
 

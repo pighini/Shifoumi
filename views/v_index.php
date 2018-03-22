@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Shifumi</title>
+        <title>Shifoumi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css" >
@@ -19,7 +19,6 @@
         </style></noscript>
         <div class="col-md-12 col-xs-12">
             <?php include 'views/v_nav.php'; ?>
-
             <!-- Partie gauche -->
             <div class="col-md-3 col-xs-3" style="background-color: #2a2b2b; color: white; height: 800px;">
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 760px; margin-top: 20px;">
@@ -65,36 +64,37 @@
                                         </ul>-->
                     <div class="tab-content">
                         <div id="onePointBet" class="tab-pane fade in active">
-                            <!-- <form method="post"> -->
-                            <fieldset>
-                                <legend style="color:white;">One point bet</legend>
-                                <div class="col-md-3 col-xs-12">
-                                    <button onclick="Anim('leaf', 'scissor');" formmethod="post" name="betPointLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
-                                </div>
-                                <div class="col-md-3 col-xs-12" style="text-align: center;">
-                                    <button type="submit" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
-                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                                    </button>
-                                    <input type="text" style="text-align: center; color: black; font-weight: bold; width: 100px;" name="amount" id="amount" readonly value="500">
-                                    <button type="submit" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
-                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    </button>
-                                    <br><br>
-                                    <label for="rock">Rock</label>
-                                    <input type="radio" name="choice" id="rock">
-                                    <label for="paper">Paper</label>
-                                    <input type="radio" name="choice" id="paper">
-                                    <label for="scissors">Scissors</label>
-                                    <input type="radio" name="choice" id="scissors">
-                                </div>
-                                <div class="col-md-3 col-xs-12" style="text-align: center;">
-                                    <h1>Benefit : X</h1>
-                                </div>
-                                <div class="col-md-3 col-xs-12">
-                                    <button onclick="Anim('leaf', 'scissor');" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
-                                </div>
-                            </fieldset>
-                            <!-- </form> -->
+                            <form method="post">
+                                <fieldset>
+                                    <legend style="color:white;">One point bet</legend>
+                                    <div class="col-md-3 col-xs-12">
+                                        <button onclick="Anim('leaf', 'scissor');" formmethod="post" name="betPointLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                    </div>
+                                    <div class="col-md-3 col-xs-12" style="text-align: center;">
+                                        <button type="submit" name="minus" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
+                                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                        </button>
+                                        <input type="text" style="text-align: center; color: black; font-weight: bold; width: 100px;" name="amount" id="amount" readonly value="<?php echo $betAmount; ?>">
+                                        <button type="submit" name="plus" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        </button>
+
+                                        <br><br>
+                                        <label for="rock">Rock</label>
+                                        <input type="radio" name="choice" id="rock">
+                                        <label for="paper">Paper</label>
+                                        <input type="radio" name="choice" id="paper">
+                                        <label for="scissors">Scissors</label>
+                                        <input type="radio" name="choice" id="scissors">
+                                    </div>
+                                    <div class="col-md-3 col-xs-12" style="text-align: center;">
+                                        <h1>Benefit : <?php echo $benefit; ?></h1>
+                                    </div>
+                                    <div class="col-md-3 col-xs-12">
+                                        <button onclick="Anim('leaf', 'scissor');" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                    </div>
+                                </fieldset>
+                            </form> 
                         </div>
                         <!--<div id="gameBet" class="tab-pane fade">
                             <form method="post">

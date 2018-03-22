@@ -24,7 +24,7 @@
                 <?php if ($_SESSION["logue"]) { ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">My account</a></li>
+                    <li><a href="c_showAccount.php" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">My account</a></li>
                     <li><a href="c_logout.php" style="color : white; text-align:center;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Logout</a></li>
                 </ul>
             <?php } else { ?>

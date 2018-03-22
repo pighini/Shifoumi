@@ -20,7 +20,80 @@
         <div class="col-md-12 col-xs-12">
             <?php include 'views/v_nav.php'; ?>
             <div class="col-md-12 col-xs-12" style="background-color: #2a2b2b; color: white; height: 800px;">
+                <ul class="nav nav-pills" >
+                    <li><a data-toggle="pill" href="#edit" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Edit account</a></li>
+                    <li><a data-toggle="pill" href="#history" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Bets history</a></li>
+                </ul>
 
+                <div class="tab-content">
+                    <div id="edit" class="tab-pane fade in active">
+                        <div class="col-md-12 col-xs-12" style="margin-top: 20px;">
+                            <form class="form-horizontal" method="POST">
+                                <fieldset>
+                                    <!-- Form Name -->
+                                    <legend style="color: white;">Edit account</legend>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
+                                        <div class="col-md-6">
+                                            <input id="username" name="username" type="text" placeholder="Your username" class="form-control input-md" required="" value="<?php echo $_SESSION["username"]; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="email" style="color: white;">Email</label>
+                                        <div class="col-md-6">
+                                            <input id="email" name="email" type="email" placeholder="Your email" class="form-control input-md" required="" value="<?php echo $_SESSION["email"]; ?>">
+                                        </div>
+                                    </div>
+                                    <!-- Password input-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="pwd" style="color: white;">Password</label>
+                                        <div class="col-md-6">
+                                            <input id="pwd" name="pwd" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="rePwd" style="color: white;">Repeat password</label>
+                                        <div class="col-md-6">
+                                            <input id="rePwd" name="rePwd" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="submit"></label>
+                                        <div class="col-md-8">
+                                            <input id="submit" name="submit" type="submit" class="btn btn-primary" value="Save changes" style="background-color: #419222; border: none;">
+                                        </div>
+                                    </div>
+                                    <?php if (!(empty($message))) { ?>
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong><?php echo $message; ?></strong>
+                                        </div>
+                                    <?php } ?>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="history" class="tab-pane fade">
+                        <div class="col-md-12 col-xs-12" style="margin-top: 20px;">
+                            <legend style="color: white;">Bets history</legend> 
+                            <table class="table" id="tableBestPlayer">
+                                <thead>
+                                <th class="col-xs-1">Amount bet</th>
+                                <th class="col-xs-3">Day of bet</th>
+                                <?php //while ($data = $betsHistory->fetch()) { ?>
+                                    <tr>
+                                        <td class="col-xs-6"><?php //echo $data['username'] ?></td>
+                                        <td class="col-xs-6"><?php //echo $data['balance'] ?></td>
+                                    </tr>
+                                    <?php
+                                /*}
+                                $betsHistory->closeCursor();*/ // Termine le traitement de la requête
+                                ?>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Bootstrap core JavaScript

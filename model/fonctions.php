@@ -192,17 +192,7 @@ function getUserByUsername($uName)
   return $request;
 
 }
-function getUserByUsername($uName)
-{
-  $db = myPdo();
-  $request = $db->prepare("SELECT * FROM `users` WHERE `username` = :username");
-  $request->execute(array(
-      'username' => $uName
-  ));
 
-  return $request;
-
-}
 function getIdByUsername($uName)
 {
   $db = myPdo();

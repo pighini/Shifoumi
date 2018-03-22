@@ -77,7 +77,7 @@ function getBalance($id) {
         'id' => $id
     ));
 
-    return $request;
+    return $request->fetch()[0];
 }
 
 function hasWon($choicePlayer, $winner) {
@@ -216,17 +216,48 @@ function getIdByUsername($uName)
 }
 function identifyWinner($choiceLeft, $choiceRight)
 {
+  $left = 1;
+  $right = 2;
+  $tie = 3;
+
   if($choiceLeft == "scissorL")
   {
     if($choiceRight == "leafR")
+    {
+      return $left;
+    }
+    elseif ($choiceRight == "rockR") {
+      return $right;
+    }
+    else {
+      return $tie
+    }
   }
   elseif ($choiceLeft == "leafL")
    {
-
+     if($choiceRight == "rockR")
+     {
+       return $left;
+     }
+     elseif ($choiceRight == "scissorR") {
+       return $right;
+     }
+     else {
+       return $tie
+     }
   }
   elseif ($choiceLeft== "rockL")
    {
-    # code...
+     if($choiceRight == "scissorR")
+     {
+       return $left;
+     }
+     elseif ($choiceRight == "leafR") {
+       return $right;
+     }
+     else {
+       return $tie
+     }
   }
 
 }

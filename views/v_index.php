@@ -64,12 +64,13 @@
                                         </ul>-->
                     <div class="tab-content">
                         <div id="onePointBet" class="tab-pane fade in active">
-                            <form method="post">
-                                <fieldset>
-                                    <legend style="color:white;">One point bet</legend>
-                                    <div class="col-md-3 col-xs-12">
-                                        <button onclick="Anim('leaf', 'scissor');" formmethod="post" name="betPointLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
-                                    </div>
+
+                            <fieldset>
+                                <legend style="color:white;">One point bet</legend>
+                                <div class="col-md-3 col-xs-12">
+                                    <button id="btnleft" onclick="Anim('leaf', 'scissor');" formmethod="post" name="betPointLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                </div>
+                                <form method="post">
                                     <div class="col-md-3 col-xs-12" style="text-align: center;">
                                         <button type="submit" name="minus" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
                                             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
@@ -90,11 +91,12 @@
                                     <div class="col-md-3 col-xs-12" style="text-align: center;">
                                         <h1>Benefit : <?php echo $benefit; ?></h1>
                                     </div>
-                                    <div class="col-md-3 col-xs-12">
-                                        <button onclick="Anim('leaf', 'scissor');" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
-                                    </div>
-                                </fieldset>
-                            </form> 
+                                </form>
+                                <div class="col-md-3 col-xs-12">
+                                    <button id="btnright" onclick="Anim('leaf', 'scissor');" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                </div>
+                            </fieldset>
+
                         </div>
                         <!--<div id="gameBet" class="tab-pane fade">
                             <form method="post">
@@ -123,10 +125,7 @@
                         </div>-->
                     </div>
                 </div>
-
             </div>
-
-
         </div>
         <!-- Bootstrap core JavaScript
         ================================================== -->

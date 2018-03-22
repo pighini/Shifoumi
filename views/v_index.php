@@ -59,10 +59,10 @@
                     <canvas id="game" class="col-md-12 col-xs-12" style="background-color: #419222; margin-top : 15px; height: 530px;"></canvas><br>
                 </div>
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; margin-top: 20px; height: 180px;">
-<!--                    <ul class="nav nav-pills">
-                        <li><a data-toggle="pill" href="#onePointBet" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">One point bet</a></li>
-                        <li><a data-toggle="pill" href="#gameBet" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Game bet</a></li>
-                    </ul>-->
+                    <!--                    <ul class="nav nav-pills">
+                                            <li><a data-toggle="pill" href="#onePointBet" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">One point bet</a></li>
+                                            <li><a data-toggle="pill" href="#gameBet" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Game bet</a></li>
+                                        </ul>-->
                     <div class="tab-content">
                         <div id="onePointBet" class="tab-pane fade in active">
                             <!-- <form method="post"> -->

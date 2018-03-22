@@ -17,94 +17,94 @@
         <div class="col-md-12 col-xs-12">
             <?php include 'views/v_nav.php'; ?>
             <div class="col-md-2 col-xs-2"></div>
-<div class="col-md-8 col-xs-8">
-            <ul class="nav nav-pills" >
-                <li><a data-toggle="pill" href="#login" style="color: white; text-decoration: none;" onmouseover="this.style.color='white'; this.style.background='#419222';" onmouseout="this.style.color='white'; this.style.background='none'">Login</a></li>
-                <li><a data-toggle="pill" href="#create" style="color: white; text-decoration: none;" onmouseover="this.style.color='white'; this.style.background='#419222';" onmouseout="this.style.color='white'; this.style.background='none'">Create account</a></li>
-            </ul>
+            <div class="col-md-8 col-xs-8">
+                <ul class="nav nav-pills" >
+                    <li><a data-toggle="pill" href="#login" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Login</a></li>
+                    <li><a data-toggle="pill" href="#create" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Create account</a></li>
+                </ul>
 
-            <div class="tab-content">
-                <div id="login" class="tab-pane fade <?php echo $login;?>">
-                    <form class="form-horizontal" method="POST" style="margin-top: 20px;">
-                        <fieldset>
-                            <!-- Form Name -->
-                            <legend style="color: white;">Login</legend>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
-                                <div class="col-md-6">
-                                    <input id="username" name="username" type="text" placeholder="Your username" class="form-control" required="" value="<?php echo $username;?>">
+                <div class="tab-content">
+                    <div id="login" class="tab-pane fade <?php echo $login; ?>">
+                        <form class="form-horizontal" method="POST" style="margin-top: 20px;">
+                            <fieldset>
+                                <!-- Form Name -->
+                                <legend style="color: white;">Login</legend>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="username" style="color: white;">Username</label>
+                                    <div class="col-md-6">
+                                        <input id="username" name="username" type="text" placeholder="Your username" class="form-control" required="" value="<?php echo $username; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Password input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="pwd" style="color: white;">Password</label>
-                                <div class="col-md-6">
-                                    <input id="pwd" name="pwd" type="password" placeholder="Your password" class="form-control" required="">
+                                <!-- Password input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="pwd" style="color: white;">Password</label>
+                                    <div class="col-md-6">
+                                        <input id="pwd" name="pwd" type="password" placeholder="Your password" class="form-control" required="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="submit"></label>
-                                <div class="col-md-8">
-                                    <input id="submit" name="submitLogin" type="submit" class="btn btn-primary" value="Login" style="background-color: #419222; border: none;">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="submit"></label>
+                                    <div class="col-md-8">
+                                        <input id="submit" name="submitLogin" type="submit" class="btn btn-primary" value="Login" style="background-color: #419222; border: none;">
+                                    </div>
                                 </div>
-                            </div>
-                            <?php if (!(empty($messageL))) { ?>
-                                  <div class="alert alert-<?php echo $alertStyle;?> alert-dismissable">
-                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                      <strong><?php echo $messageL; ?></strong>
-                                  </div>
-                              <?php } ?>
-                        </fieldset>
-                    </form>
+                                <?php if (!(empty($messageL))) { ?>
+                                    <div class="alert alert-<?php echo $alertStyle; ?> alert-dismissable">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong><?php echo $messageL; ?></strong>
+                                    </div>
+                                <?php } ?>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="create" class="tab-pane fade <?php echo $new; ?>">
+                        <form class="form-horizontal" method="POST" style="margin-top: 20px;">
+                            <fieldset>
+                                <!-- Form Name -->
+                                <legend style="color: white;">Create account</legend>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="usernameN" style="color: white;">Username</label>
+                                    <div class="col-md-6">
+                                        <input id="usernameN" name="usernameN" type="text" placeholder="Your username" class="form-control input-md" required="" value="<?php echo $usernameN; ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="emailN" style="color: white;">Email</label>
+                                    <div class="col-md-6">
+                                        <input id="emailN" name="emailN" type="email" placeholder="Your email" class="form-control input-md" required="" value="<?php echo $email; ?>">
+                                    </div>
+                                </div>
+                                <!-- Password input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="pwdN" style="color: white;">Password</label>
+                                    <div class="col-md-6">
+                                        <input id="pwdN" name="pwdN" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="rePwdN" style="color: white;">Repeat password</label>
+                                    <div class="col-md-6">
+                                        <input id="rePwdN" name="rePwdN" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="submit"></label>
+                                    <div class="col-md-8">
+                                        <input id="submit" name="submitNew" type="submit" class="btn btn-primary" value="Create account" style="background-color: #419222; border: none;">
+                                    </div>
+                                </div>
+                                <?php if (!(empty($messageN))) { ?>
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong><?php echo $messageN; ?></strong>
+                                    </div>
+                                <?php } ?>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
-                <div id="create" class="tab-pane fade <?php echo $new;?>">
-                    <form class="form-horizontal" method="POST" style="margin-top: 20px;">
-                        <fieldset>
-                            <!-- Form Name -->
-                            <legend style="color: white;">Create account</legend>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="usernameN" style="color: white;">Username</label>
-                                <div class="col-md-6">
-                                    <input id="usernameN" name="usernameN" type="text" placeholder="Your username" class="form-control input-md" required="" value="<?php echo $usernameN;?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="emailN" style="color: white;">Email</label>
-                                <div class="col-md-6">
-                                    <input id="emailN" name="emailN" type="email" placeholder="Your email" class="form-control input-md" required="" value="<?php echo $email;?>">
-                                </div>
-                            </div>
-                            <!-- Password input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="pwdN" style="color: white;">Password</label>
-                                <div class="col-md-6">
-                                    <input id="pwdN" name="pwdN" type="password" placeholder="Your password" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="rePwdN" style="color: white;">Repeat password</label>
-                                <div class="col-md-6">
-                                    <input id="rePwdN" name="rePwdN" type="password" placeholder="Your password" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="submit"></label>
-                                <div class="col-md-8">
-                                    <input id="submit" name="submitNew" type="submit" class="btn btn-primary" value="Create account" style="background-color: #419222; border: none;">
-                                </div>
-                            </div>
-                            <?php if (!(empty($messageN))) { ?>
-                                  <div class="alert alert-danger alert-dismissable">
-                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                      <strong><?php echo $messageN; ?></strong>
-                                  </div>
-                              <?php } ?>
-                        </fieldset>
-                    </form>
-                </div>
+
             </div>
-
-</div>
         </div>
 
         <!-- Bootstrap core JavaScript

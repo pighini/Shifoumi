@@ -4,7 +4,7 @@ session_start();
 
 if ($_SESSION["logue"] == false) {
     header("location:c_showAccueil.php");
-}else{
+} else {
     $_SESSION["logue"];
 }
 

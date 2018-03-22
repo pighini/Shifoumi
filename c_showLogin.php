@@ -23,7 +23,7 @@ if (filter_has_var(INPUT_POST, 'submitLogin')) {
     $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
     $pwd = filter_input(INPUT_POST, 'pwd');
     $new = "";
-    $login ="in active";
+    $login = "in active";
 
     if (checkUserAuthentification($username, $pwd)) {
         $_SESSION['logue'] = true;
@@ -34,29 +34,29 @@ if (filter_has_var(INPUT_POST, 'submitLogin')) {
 }
 
 if (filter_has_var(INPUT_POST, 'submitNew')) {
-  $usernameN = trim(filter_input(INPUT_POST, 'usernameN', FILTER_SANITIZE_STRING));
-  $email = trim(filter_input(INPUT_POST, 'emailN', FILTER_SANITIZE_STRING));
-  $pwd = filter_input(INPUT_POST, 'pwdN');
-  $rePwd = filter_input(INPUT_POST, 'rePwdN');
-  $new = "in active";
-  $login ="";
-  if (empty($usernameN)) {
-    $messageN = "Your username can't be empty !";
-  }
-  if (empty($email)) {
-    $messageN = "Your email can't be empty !";
-  }
-  if ($pwd != $rePwd) {
-    $messageN = "The passwords don't match !";
-  }else if (empty($messageN)) {
-      addUser($usernameN, $email, $rePwd, 500);
-      $messageL = "Your account has been created.";
-      $alertStyle = "success";
-      $new = "";
-      $login ="in active";
-  }else{
-    $messageN = "Your account can't be created !";
-  }
+    $usernameN = trim(filter_input(INPUT_POST, 'usernameN', FILTER_SANITIZE_STRING));
+    $email = trim(filter_input(INPUT_POST, 'emailN', FILTER_SANITIZE_STRING));
+    $pwd = filter_input(INPUT_POST, 'pwdN');
+    $rePwd = filter_input(INPUT_POST, 'rePwdN');
+    $new = "in active";
+    $login = "";
+    if (empty($usernameN)) {
+        $messageN = "Your username can't be empty !";
+    }
+    if (empty($email)) {
+        $messageN = "Your email can't be empty !";
+    }
+    if ($pwd != $rePwd) {
+        $messageN = "The passwords don't match !";
+    } else if (empty($messageN)) {
+        addUser($usernameN, $email, $rePwd, 500);
+        $messageL = "Your account has been created.";
+        $alertStyle = "success";
+        $new = "";
+        $login = "in active";
+    } else {
+        $messageN = "Your account can't be created !";
+    }
 }
 
 

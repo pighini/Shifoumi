@@ -72,13 +72,19 @@
                                 </div>
                                 <form method="post">
                                     <div class="col-md-3 col-xs-12" style="text-align: center;">
-                                        <button type="submit" name="minus" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
-                                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                                        </button>
-                                        <input type="text" style="text-align: center; color: black; font-weight: bold; width: 100px;" name="amount" id="amount" readonly value="<?php echo $betAmount; ?>">
-                                        <button type="submit" name="plus" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button>
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button id="minus" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                            </span>
+                                            <input type="text" name="quant[1]" class="form-control input-number" value="0" min="0" max="1000">
+                                            <span class="input-group-btn">
+                                                <button id="plus" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                            </span>
+                                        </div>
 
                                         <br><br>
                                         <label for="rock">Rock</label>

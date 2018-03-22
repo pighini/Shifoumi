@@ -44,17 +44,27 @@
                                             <input id="email" name="email" type="email" placeholder="Your email" class="form-control input-md" required="" value="<?php echo $_SESSION["email"]; ?>">
                                         </div>
                                     </div>
+                                    
+                                    <legend style="color: white;">Change password</legend>
+                                    
                                     <!-- Password input-->
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="pwd" style="color: white;">Password</label>
+                                        <label class="col-md-4 control-label" for="Npwd" style="color: white;">New password</label>
                                         <div class="col-md-6">
-                                            <input id="pwd" name="pwd" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                            <input id="Npwd" name="Npwd" type="password" placeholder="Your new password" class="form-control input-md">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="rePwd" style="color: white;">Repeat password</label>
+                                        <label class="col-md-4 control-label" for="NrePwd" style="color: white;">Repeat new password</label>
                                         <div class="col-md-6">
-                                            <input id="rePwd" name="rePwd" type="password" placeholder="Your password" class="form-control input-md" required="">
+                                            <input id="NrePwd" name="NrePwd" type="password" placeholder="Your new password" class="form-control input-md">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="pwd" style="color: white;">Enter your password to save your changes</label>
+                                        <div class="col-md-6">
+                                            <input id="pwd" name="pwd" type="password" placeholder="Your password" class="form-control input-md" required="">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -64,7 +74,7 @@
                                         </div>
                                     </div>
                                     <?php if (!(empty($message))) { ?>
-                                        <div class="alert alert-danger alert-dismissable">
+                                        <div class="alert alert-<?php echo $type;?> alert-dismissable">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                             <strong><?php echo $message; ?></strong>
                                         </div>

@@ -31,6 +31,7 @@ if (filter_has_var(INPUT_POST, 'submitLogin')) {
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['balance'] = $user['balance'];
+        $_SESSION['pwd'] = $user['password'];
         header("location:index.php");
         exit;
     }

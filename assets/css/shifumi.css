@@ -16,3 +16,9 @@ body{
 {
     margin-top: 10px;
 }
+
+canvas
+{
+	background-image: url("../images/canvasImg.jpg");
+        background-size: cover;
+}

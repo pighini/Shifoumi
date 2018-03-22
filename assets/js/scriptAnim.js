@@ -21,15 +21,15 @@ function Anim(optionGauche, optionDroite) {
     
     timer = setInterval(Display, 10);
     var imgNames = ['leaf', 'scissor', 'rock'];
-    var imgNameL = imgNames[getRandomInt(imgNames.length)];
-    var imgNameR = imgNames[getRandomInt(imgNames.length)];
+    var imgNameL = imgNames[getRandomInt(imgNames.length)].concat("L");
+    var imgNameR = imgNames[getRandomInt(imgNames.length)].concat("R");
     var directory = "assets/images/";
     var type = ".png";
     
     MainGauche.src = directory.concat(imgNameL.concat(type));
     MainDroite.src = directory.concat(imgNameR.concat(type));
-    MainMoveG.src = directory.concat("move".concat(type));
-    MainMoveD.src = directory.concat("move".concat(type));
+    MainMoveG.src = directory.concat("rockL".concat(type));
+    MainMoveD.src = directory.concat("rockR".concat(type));
     
     handLeft = Hand(20, 10, 1, MainMoveG);
     handRight = Hand(20, 240, 1, MainMoveD);
@@ -80,7 +80,7 @@ function Hand(apy, apx, avy, aimg) {
         },
 
         displayImg: function () {
-            ctx.drawImage(this.img, this.px, this.py)
+            ctx.drawImage(this.img, this.px, this.py, 50, 50);
         },
         
         changeImage: function (option) {

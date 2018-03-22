@@ -134,4 +134,62 @@ function chooseShape($side, $shape) {
     }
 }
 
+function updateEmail($email, $username)
+{
+  $db = myPdo();
+  $request = $db->prepare("UPDATE `users` SET `email`= :email WHERE `username` = :username");
+  $request->execute(array(
+      'username' => $username,
+      'email' => $email
+  ));
+}
+
+function updatePassword($password, $username)
+{
+  $db = myPdo();
+  $request = $db->prepare("UPDATE `users` SET `password`= :password WHERE `username` = :username");
+  $request->execute(array(
+      'username' => $username,
+      'password' => $password
+  ));
+}
+function updatePseudo($newUsername , $oldUsername)
+{
+  $db = myPdo();
+  $request = $db->prepare("UPDATE `users` SET `username`= :newusername WHERE `username` = :oldusername");
+  $request->execute(array(
+      'newUsername' => $newUsername,
+      'oldUsername' => $oldUsername
+  ));
+}
+function updateAward($id, $award)
+{
+  $db = myPdo();
+  $request = $db->prepare("UPDATE `bets` SET `award`= :award WHERE `idBet` = :idBet");
+  $request->execute(array(
+      'award' => $award,
+      'idBet' => $id
+  ));
+}
+function getBetHistory()
+{
+  $db = myPdo();
+  $request = $db->prepare("SELECT * FROM `users` WHERE `username` = :username");
+  $request->execute(array(
+      'username' => $uName
+  ));
+
+  return $request;
+}
+function getUserByUsername($uName)
+{
+  $db = myPdo();
+  $request = $db->prepare("SELECT * FROM `users` WHERE `username` = :username");
+  $request->execute(array(
+      'username' => $uName
+  ));
+
+  return $request;
+
+}
 ?>

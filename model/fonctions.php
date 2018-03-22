@@ -48,8 +48,8 @@ function checkUserAuthentification($username, $pwd){
 }
 
 function getBestUsers() {
-    $db = MyPdo();
-    $sql = "SELECT `username`, `balance` FROM `users` ORDER BY `balance` DESC LIMIT 10";
+    $db = myPdo();
+    $sql = "SELECT username, balance FROM users ORDER BY balance DESC LIMIT 10";
     $request = $db->query($sql);
     return $request;
 }
@@ -145,6 +145,4 @@ function chooseShape($side, $shape)
       return  $shape +"R";
     }
   }
-
-}
 ?>

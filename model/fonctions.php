@@ -220,7 +220,7 @@ function identifyWinner($choiceLeft, $choiceRight)
       return $right;
     }
     else {
-      return $tie
+      return $tie;
     }
   }
   elseif ($choiceLeft == "leafL")
@@ -233,7 +233,7 @@ function identifyWinner($choiceLeft, $choiceRight)
        return $right;
      }
      else {
-       return $tie
+       return $tie;
      }
   }
   elseif ($choiceLeft== "rockL")
@@ -246,7 +246,7 @@ function identifyWinner($choiceLeft, $choiceRight)
        return $right;
      }
      else {
-       return $tie
+       return $tie;
      }
   }
 

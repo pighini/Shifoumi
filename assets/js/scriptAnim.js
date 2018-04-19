@@ -23,15 +23,12 @@ function Anim(optionGauche, optionDroite) {
 
     btnL.disabled = true;
     btnR.disabled = true;
-    timer = setInterval(Display, 10);
-    var imgNames = ['leaf', 'scissor', 'rock'];
-    var imgNameL = imgNames[getRandomInt(imgNames.length)].concat("L");
-    var imgNameR = imgNames[getRandomInt(imgNames.length)].concat("R");
+    timer = setInterval(Display, 10)
     var directory = "assets/images/";
     var type = ".png";
 
-    MainGauche.src = directory.concat(imgNameL.concat(type));
-    MainDroite.src = directory.concat(imgNameR.concat(type));
+    MainGauche.src = directory.concat(optionGauche.concat(type));
+    MainDroite.src = directory.concat(optionDroite.concat(type));
     MainMoveG.src = directory.concat("rockL".concat(type));
     MainMoveD.src = directory.concat("rockR".concat(type));
 

@@ -171,7 +171,7 @@ function updateAward($id, $award)
       'idBet' => $id
   ));
 }
-function getBetHistory()
+function getBetHistory($id)
 {
   $db = myPdo();
   $request = $db->prepare("SELECT  `award`, `dateBet` FROM `bets` WHERE `idUser` = :idUser ORDER BY `dateBet` DESC");

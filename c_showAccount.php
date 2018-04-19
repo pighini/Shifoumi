@@ -9,6 +9,7 @@ if ($_SESSION["logue"] == false) {
 
 require_once 'model/fonctions.php';
 
+$betsHistory = getBetHistory($_SESSION["idUser"]);
 $oldEmail = $_SESSION["email"];
 $oldUsername = $_SESSION["username"];
 $type = "danger";

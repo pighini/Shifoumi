@@ -28,6 +28,7 @@ if (filter_has_var(INPUT_POST, 'submitLogin')) {
     if (checkUserAuthentification($username, $pwd)) {
         $user = getUserByUsername($username)->fetch();
         $_SESSION['logue'] = true;
+        $_SESSION['idUser'] = $user['idUser'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['balance'] = $user['balance'];

@@ -90,14 +90,14 @@
                                 <thead>
                                 <th class="col-xs-1">Amount bet</th>
                                 <th class="col-xs-3">Day of bet</th>
-                                <?php //while ($data = $betsHistory->fetch()) { ?>
+                                <?php while ($data = $betsHistory->fetch()) { ?>
                                     <tr>
-                                        <td class="col-xs-6"><?php //echo $data['username'] ?></td>
-                                        <td class="col-xs-6"><?php //echo $data['balance'] ?></td>
+                                        <td class="col-xs-6"><?php echo $data['amount'] ?></td>
+                                        <td class="col-xs-6"><?php echo $data['dateBet'] ?></td>
                                     </tr>
                                     <?php
-                                /*}
-                                $betsHistory->closeCursor();*/ // Termine le traitement de la requête
+                                }
+                                $betsHistory->closeCursor(); // Termine le traitement de la requête
                                 ?>
                             </table>
 

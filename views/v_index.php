@@ -95,7 +95,7 @@
                                         <input type="radio" name="choice" id="scissors">
                                     </div>
                                     <div class="col-md-3 col-xs-12" style="text-align: center;">
-                                        <h1>Benefit : <?php echo $benefit; ?></h1>
+                                        <h1>Benefit : X <?php //echo $benefit; ?></h1>
                                     </div>
                                 </form>
                                 <div class="col-md-3 col-xs-12">

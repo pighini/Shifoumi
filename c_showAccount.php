@@ -35,7 +35,7 @@ if (filter_has_var(INPUT_POST, "submit")) {
         }
     }
     if ($oldUsername != $newUsername) {
-        if (!empty($newUsername)) {
+        if (!empty($newUsername) && !usernameAvailable($newUsername)) {
             if ($pwd == $_SESSION['pwd']) {
                 updatePseudo($newUsername, $_SESSION["username"]);
                 $_SESSION['username'] = $newUsername;
@@ -45,6 +45,8 @@ if (filter_has_var(INPUT_POST, "submit")) {
                 $message = "Your password is wrong !";
                 $type = "danger";
             }
+        }else{
+             $message = "You can't use this username !";
         }
     }
     if (!empty($newPwd)) {

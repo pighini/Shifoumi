@@ -20,7 +20,7 @@
         <div class="col-md-12 col-xs-12">
             <?php include 'views/v_nav.php'; ?>
             <!-- Partie gauche -->
-            <div class="col-md-3 col-xs-3" style="background-color: #2a2b2b; color: white; height: 800px;">
+            <div class="col-md-3 col-xs-12" style="background-color: #2a2b2b; color: white; height: 800px;">
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: white; height: 760px; margin-top: 20px;">
                     <table class="table" id="tableBestPlayer">
                         <thead>
@@ -52,7 +52,7 @@
             </div>
 
             <!-- Partie droite -->
-            <div class="col-md-9 col-xs-9" style="background-color: #2a2b2b; color: white; height: 800px;">
+            <div class="col-md-9 col-xs-12" style="background-color: #2a2b2b; color: white; height: 800px;">
 
                 <div class="col-md-12 col-xs-12" style="background-color: #1b2021; color: black; height: 560px; margin-top: 20px;">
                     <canvas id="game" class="col-md-12 col-xs-12" style="background-color: #419222; margin-top : 15px; height: 530px;"></canvas><br>

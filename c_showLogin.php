@@ -53,6 +53,9 @@ if (filter_has_var(INPUT_POST, 'submitNew')) {
     }
     if ($pwd != $rePwd) {
         $messageN = "The passwords don't match !";
+    }
+    if (usernameAvailable($usernameN)) {
+        $messageN = "This username already exists !";
     } else if (empty($messageN)) {
         addUser($usernameN, $email, $rePwd, 500);
         $messageL = "Your account has been created.";

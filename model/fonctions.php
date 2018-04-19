@@ -158,8 +158,8 @@ function updatePseudo($newUsername , $oldUsername)
   $db = myPdo();
   $request = $db->prepare("UPDATE `users` SET `username`= :newusername WHERE `username` = :oldusername");
   $request->execute(array(
-      'newUsername' => $newUsername,
-      'oldUsername' => $oldUsername
+      'newusername' => $newUsername,
+      'oldusername' => $oldUsername
   ));
 }
 function updateAward($id, $award)

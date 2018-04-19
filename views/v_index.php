@@ -29,7 +29,7 @@
                         <?php if (isset($_SESSION['pseudo'])) { ?><th class="col-xs-1">Edition</th><?php } ?>
                         </thead>
                         <?php while ($donnees = $usersList->fetch()) { ?>
-                            <tr>
+                        <tr>
                                 <td class="col-xs-6"><?php echo $donnees['username'] ?></td>
                                 <td class="col-xs-6"><?php echo $donnees['balance'] ?></td>
                             </tr>
@@ -68,7 +68,9 @@
                             <fieldset>
                                 <legend style="color:white;">One point bet</legend>
                                 <div class="col-md-3 col-xs-12">
-                                    <button id="btnleft" onclick="Anim('leaf', 'scissor');" formmethod="post" name="betPointLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                    <form action="index.php" method="POST">
+                                        <button id="btnleft" name="btnLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                    </form>                                 
                                 </div>
                                 <form method="post">
                                     <div class="col-md-3 col-xs-12" style="text-align: center;">
@@ -95,11 +97,13 @@
                                         <input type="radio" name="choice" id="scissors">
                                     </div>
                                     <div class="col-md-3 col-xs-12" style="text-align: center;">
-                                        <h1>Benefit : X <?php //echo $benefit; ?></h1>
+                                        <h1>Benefit : X <?php //echo $benefit;   ?></h1>
                                     </div>
                                 </form>
                                 <div class="col-md-3 col-xs-12">
-                                    <button id="btnright" onclick="Anim('leaf', 'scissor');" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                    <form action="index.php" method="POST">
+                                        <button id="btnright" name="btnRight" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+                                    </form> 
                                 </div>
                             </fieldset>
 
@@ -142,6 +146,7 @@
         <script src="Bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <?= $script ?>
     </body>
 
 </html>

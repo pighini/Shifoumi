@@ -162,20 +162,19 @@ function updatePseudo($newUsername , $oldUsername)
       'oldUsername' => $oldUsername
   ));
 }
-function updateAward($id, $award)
-{
+function updateAward($id, $amount) {
   $db = myPdo();
-  $request = $db->prepare("UPDATE `bets` SET `award`= :award WHERE `idBet` = :idBet");
-  $request->execute(array(
-      'award' => $award,
-      'idBet' => $id
+  $request = $db->prepare("UPDATE `bets` SET `amount`= :award WHERE `idBet` = :idBet");
+    $request->execute(array(
+      'award' => $amount,
+        'idBet' => $id
   ));
 }
 function getBetHistory()
 {
   $db = myPdo();
-  $request = $db->prepare("SELECT  `award`, `dateBet` FROM `bets` WHERE `idUser` = :idUser ORDER BY `dateBet` DESC");
-  $request->execute(array(
+  $request = $db->prepare("SELECT  `amount`, `dateBet` FROM `bets` WHERE `idUser` = :idUser ORDER BY `dateBet` DESC");
+    $request->execute(array(
       'idUser' => $id
   ));
 

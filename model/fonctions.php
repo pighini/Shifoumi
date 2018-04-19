@@ -173,7 +173,7 @@ function updateAward($id, $amount) {
 function getBetHistory($id)
 {
   $db = myPdo();
-  $request = $db->prepare("SELECT  `amount`, `dateBet` FROM `bets` WHERE `idUser` = :idUser ORDER BY `dateBet` DESC");
+  $request = $db->prepare("SELECT * FROM `bets` WHERE `idUser` = :idUser ORDER BY `dateBet` DESC");
     $request->execute(array(
       'idUser' => $id
   ));

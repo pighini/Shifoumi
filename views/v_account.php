@@ -44,9 +44,9 @@
                                             <input id="email" name="email" type="email" placeholder="Your email" class="form-control input-md" required="" value="<?php echo $_SESSION["email"]; ?>">
                                         </div>
                                     </div>
-                                    
+
                                     <legend style="color: white;">Change password</legend>
-                                    
+
                                     <!-- Password input-->
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="Npwd" style="color: white;">New password</label>
@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
                                     <?php if (!(empty($message))) { ?>
-                                        <div class="alert alert-<?php echo $type;?> alert-dismissable">
+                                        <div class="alert alert-<?php echo $type; ?> alert-dismissable">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                             <strong><?php echo $message; ?></strong>
                                         </div>
@@ -89,9 +89,16 @@
                             <table class="table" id="tableBestPlayer">
                                 <thead>
                                 <th class="col-xs-1">Amount bet</th>
-                                <th class="col-xs-3">Day of bet</th>
-                                <?php while ($data = $betsHistory->fetch()) { ?>
-                                    <tr>
+                                <th class="col-xs-3">Moment of bet</th>
+                                <?php
+                                while ($data = $betsHistory->fetch()) {
+                                    if ($data['isWon'] == 0) {
+                                        $color = "red";
+                                    } else {
+                                        $color = "lime";
+                                    }
+                                    ?>
+                                    <tr style="color: <?php echo $color; ?>">
                                         <td class="col-xs-6"><?php echo $data['amount'] ?></td>
                                         <td class="col-xs-6"><?php echo $data['dateBet'] ?></td>
                                     </tr>

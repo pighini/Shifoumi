@@ -23,9 +23,9 @@ if (filter_has_var(INPUT_POST, "submit")) {
     $reNewPwd = $_POST['NrePwd'];
 
     if ($oldEmail != $newEmail) {
-        if (!empty($newEmail)) {
+        if (!empty($newEmail) && !emailExist($newEmail)) {
             if ($pwd == $_SESSION['pwd']) {
-                updateEmail($email, $_SESSION["username"]);
+                updateEmail($newEmail, $_SESSION["username"]);
                 $_SESSION['email'] = $newEmail;
                 $message = "Your changes have been applied !";
                 $type = "success";
@@ -33,6 +33,8 @@ if (filter_has_var(INPUT_POST, "submit")) {
                 $message = "Your password is wrong !";
                 $type = "danger";
             }
+        }else{
+            $message = "You can't use this email !";
         }
     }
     if ($oldUsername != $newUsername) {

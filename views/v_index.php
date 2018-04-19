@@ -63,6 +63,9 @@
                                             <li><a data-toggle="pill" href="#gameBet" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Game bet</a></li>
                                         </ul>-->
                     <div class="tab-content">
+                        <?php if ($_SESSION["logue"]) { ?>
+                    
+                
                         <div id="onePointBet" class="tab-pane fade in active">
 
                             <fieldset>
@@ -133,6 +136,9 @@
                                 </fieldset>
                             </form>
                         </div>-->
+                        <?php } else{ ?>
+                        <h2>You must be logged to play !</h2>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

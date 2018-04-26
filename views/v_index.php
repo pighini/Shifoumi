@@ -64,81 +64,81 @@
                                         </ul>-->
                     <div class="tab-content">
                         <?php if ($_SESSION["logue"]) { ?>
-                    
-                
-                        <div id="onePointBet" class="tab-pane fade in active">
 
-                            <fieldset>
-                                <legend style="color:white;">One point bet</legend>
-                                <div class="col-md-3 col-xs-12">
-                                    <form action="index.php" method="POST">
-                                        <button id="btnleft" name="btnLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
-                                    </form>                                 
-                                </div>
-                                <form method="post">
-                                    <div class="col-md-3 col-xs-12" style="text-align: center;">
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button id="minus" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quant[1]" class="form-control input-number" value="50" min="50" max="1000">
-                                            <span class="input-group-btn">
-                                                <button id="plus" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </button>
-                                            </span>
+
+                            <div id="onePointBet" class="tab-pane fade in active">
+                                <form action="index.php" method="POST">
+                                    <fieldset>
+                                        <legend style="color:white;">One point bet</legend>
+                                        <div class="col-md-3 col-xs-12">
+
+                                            <button id="btnleft" name="btnLeft" type="submit" style="background-color: #970a08; border: none; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+
                                         </div>
 
-                                        <br><br>
-                                        <label for="rock">Rock</label>
-                                        <input type="radio" name="choice" id="rock">
-                                        <label for="paper">Paper</label>
-                                        <input type="radio" name="choice" id="paper">
-                                        <label for="scissors">Scissors</label>
-                                        <input type="radio" name="choice" id="scissors">
-                                    </div>
-                                    <div class="col-md-3 col-xs-12" style="text-align: center;">
-                                        <h1>Benefit : X <?php //echo $benefit;   ?></h1>
-                                    </div>
-                                </form>
-                                <div class="col-md-3 col-xs-12">
-                                    <form action="index.php" method="POST">
-                                        <button id="btnright" name="btnRight" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
-                                    </form> 
-                                </div>
-                            </fieldset>
+                                        <div class="col-md-3 col-xs-12" style="text-align: center;">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button id="minus" type="button" class="btn btn-default btn-number" data-type="minus" data-field="amount">
+                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="amount" class="form-control input-number" value="50" min="50" max="1000">
+                                                <span class="input-group-btn">
+                                                    <button id="plus" type="button" class="btn btn-default btn-number" data-type="plus" data-field="amount">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
 
-                        </div>
-                        <!--<div id="gameBet" class="tab-pane fade">
-                            <form method="post">
-                                <fieldset>
-                                    <legend style="color:white;">Game bet</legend>
-                                    <div class="col-md-3 col-xs-3">
-                                        <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px; font-size: 30px;">
-                                    </div>
-                                    <div class="col-md-3 col-xs-3" style="text-align: center;">
-                                        <button type="submit" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
-                                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                                        </button>
-                                        <input type="text" style="text-align: center; color: black;" name="amount" id="amount" readonly>
-                                        <button type="submit" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3 col-xs-3" style="text-align: center;">
-                                        <h1>Benefit : X</h1>
-                                    </div>
-                                    <div class="col-md-3 col-xs-3">
-                                        <input id="submit" name="submitR" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px;">
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>-->
-                        <?php } else{ ?>
-                        <h2>You must be logged to play !</h2>
-                        <?php } ?>
+                                                <br><br>
+                                                <label for="rock">Rock</label>
+                                                <input type="radio" name="choice" id="rock">
+                                                <label for="paper">Paper</label>
+                                                <input type="radio" name="choice" id="paper">
+                                                <label for="scissors">Scissors</label>
+                                                <input type="radio" name="choice" id="scissors">
+                                            </div>
+                                            <div class="col-md-3 col-xs-12" style="text-align: center;">
+                                                <h1>Benefit : X <?php //echo $benefit;     ?></h1>
+                                            </div>
+
+                                            <div class="col-md-3 col-xs-12">
+
+                                                <button id="btnright" name="btnRight" type="submit" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px; border-radius: 5px;">Bet !</button>
+
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <!--<div id="gameBet" class="tab-pane fade">
+                                    <form method="post">
+                                        <fieldset>
+                                            <legend style="color:white;">Game bet</legend>
+                                            <div class="col-md-3 col-xs-3">
+                                                <input id="submit" name="submitL" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #970a08; border: none; float: left; width: 200px; height: 50px; font-size: 30px;">
+                                            </div>
+                                            <div class="col-md-3 col-xs-3" style="text-align: center;">
+                                                <button type="submit" class="btn btn-primary mb-2" style="background-color: #970a08; border: none;">
+                                                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                </button>
+                                                <input type="text" style="text-align: center; color: black;" name="amount" id="amount" readonly>
+                                                <button type="submit" class="btn btn-primary mb-2" style="background-color: #419222; border: none;">
+                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3" style="text-align: center;">
+                                                <h1>Benefit : X</h1>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                <input id="submit" name="submitR" type="submit" class="btn btn-primary" value="Bet !" style="background-color: #419222; border: none; float: right; width:200px; height: 50px; font-size: 30px;">
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>-->
+                            <?php } else { ?>
+                                <h2>You must be logged to play !</h2>
+                            <?php } ?>
                     </div>
                 </div>
             </div>
@@ -148,10 +148,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="assets/js/scriptAnim.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
         <script src="Bootstrap/js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
         <?= $script ?>
     </body>
 

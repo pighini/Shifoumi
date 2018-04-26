@@ -16,18 +16,25 @@ $script = "";
 if (filter_has_var(INPUT_POST, 'btnLeft')) {
     //$amount = $_POST['quant[1]'];
     //$idUser = $_SESSION['idUser'];
-    $script = '<script type="text/javascript">
-    Anim();
-    </script>';
-    //$shapeL = chooseShape('L');
-    //insertBet($amount, $idUser);
+    $shapeL = chooseShape("L");
+    $shapeR = chooseShape("R");
+    $script = "<script type=\"text/javascript\">
+      Anim('$shapeL', '$shapeR');
+      </script>";
+    $amount = trim(filter_input(INPUT_POST, "amount", FILTER_SANITIZE_NUMBER_INT));
+    if (checkBalance($amount, $_SESSION['idUser'])) {
+        insertBet($amount, $_SESSION['idUser']);
+    }
+
     unset($_POST['btnLeft']);
 }
 
 if (filter_has_var(INPUT_POST, 'btnRight')) {
-    $script = '<script type="text/javascript">
-    Anim();
-    </script>';
+    $shapeL = chooseShape("L");
+    $shapeR = chooseShape("R");
+    $script = "<script type=\"text/javascript\">
+      Anim('$shapeL', '$shapeR');
+      </script>";
     unset($_POST['btnRight']);
 }
 

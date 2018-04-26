@@ -103,6 +103,8 @@ function insertBet($amount, $id) {
         'amount' => $amount,
         'id' => $id
     ));
+    $id = $db->lastInsertId();
+    return $id;
 }
 
 function removeBetAmount($amount, $id) {
@@ -152,12 +154,11 @@ function updatePseudo($newUsername, $oldUsername) {
     ));
 }
 
-function updateAward($id, $amount) {
+function updateWon($idBet, $value) {
     $db = myPdo();
-    $request = $db->prepare("UPDATE `bets` SET `amount`= :award WHERE `idBet` = :idBet");
+    $request = $db->prepare("UPDATE `bets` SET `isWon`= $value WHERE `idBet` = :idBet");
     $request->execute(array(
-        'award' => $amount,
-        'idBet' => $id
+        'idBet' => $idBet
     ));
 }
 

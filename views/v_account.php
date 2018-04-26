@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
                                     <?php if (!(empty($message))) { ?>
-                                        <div class="alert alert-<?php echo $type; ?> alert-dismissable">
+                                    <div class="alert alert-<?php echo $type; ?> alert-dismissable">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                             <strong><?php echo $message; ?></strong>
                                         </div>
@@ -94,11 +94,13 @@
                                 while ($data = $betsHistory->fetch()) {
                                     if ($data['isWon'] == 0) {
                                         $color = "red";
-                                    } else {
+                                    } elseif ($data['isWon'] == 1) {
                                         $color = "lime";
+                                    } else {
+                                        $color = "white";
                                     }
                                     ?>
-                                    <tr style="color: <?php echo $color; ?>">
+                                <tr style="color: <?php echo $color; ?>">
                                         <td class="col-xs-6"><?php echo $data['amount'] ?></td>
                                         <td class="col-xs-6"><?php echo $data['dateBet'] ?></td>
                                     </tr>

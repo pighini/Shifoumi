@@ -56,22 +56,17 @@ function getBestUsers() {
 }
 
 function checkBalance($amount, $id) {
-    $balance = getBalance($amount, $id);
-    if (amount > $balance) {
-        return true;
-    } else { {
-            return false;
-        }
+    $balance = getBalance($id);
+    if ($amount > $balance) {
+        return FALSE;
+    } else {
+        return TRUE;
     }
 }
 
 function getBalance($id) {
 
     $db = myPdo();
-    $userN = $username;
-    $email = $emailUser;
-    $password = $pwd;
-    $balance = $balanceUser;
     $request = $db->prepare("SELECT balance FROM `users` WHERE `idUser` = :id");
     $request->execute(array(
         'id' => $id
@@ -102,10 +97,6 @@ function giveReward($id, $amount) {
 function insertBet($amount, $id) {
 
     $db = myPdo();
-    $userN = $username;
-    $email = $emailUser;
-    $password = $pwd;
-    $balance = $balanceUser;
     $request = $db->prepare("INSERT INTO bets(`amount`, `idUser`)
             VALUES(:amount , :id)");
     $request->execute(array(
@@ -126,128 +117,110 @@ function removeBetAmount($amount, $id) {
 
 function chooseShape($side) {
     $shapes = array("rock", "leaf", "scissor");
-    $shape = $shapes[random_int(0, 2)];
+    $shape = $shapes[rand(0, 2)];
     if ($side == "L") {
-        return $shape + "L";
+        return $shape . "L";
     } else {
-        return $shape + "R";
+        return $shape . "R";
     }
 }
 
-function updateEmail($email, $username)
-{
-  $db = myPdo();
-  $request = $db->prepare("UPDATE `users` SET `email`= :email WHERE `username` = :username");
-  $request->execute(array(
-      'username' => $username,
-      'email' => $email
-  ));
+function updateEmail($email, $username) {
+    $db = myPdo();
+    $request = $db->prepare("UPDATE `users` SET `email`= :email WHERE `username` = :username");
+    $request->execute(array(
+        'username' => $username,
+        'email' => $email
+    ));
 }
 
-function updatePassword($password, $username)
-{
-  $db = myPdo();
-  $request = $db->prepare("UPDATE `users` SET `password`= :password WHERE `username` = :username");
-  $request->execute(array(
-      'username' => $username,
-      'password' => $password
-  ));
+function updatePassword($password, $username) {
+    $db = myPdo();
+    $request = $db->prepare("UPDATE `users` SET `password`= :password WHERE `username` = :username");
+    $request->execute(array(
+        'username' => $username,
+        'password' => $password
+    ));
 }
-function updatePseudo($newUsername , $oldUsername)
-{
-  $db = myPdo();
-  $request = $db->prepare("UPDATE `users` SET `username`= :newusername WHERE `username` = :oldusername");
-  $request->execute(array(
-      'newusername' => $newUsername,
-      'oldusername' => $oldUsername
-  ));
+
+function updatePseudo($newUsername, $oldUsername) {
+    $db = myPdo();
+    $request = $db->prepare("UPDATE `users` SET `username`= :newusername WHERE `username` = :oldusername");
+    $request->execute(array(
+        'newusername' => $newUsername,
+        'oldusername' => $oldUsername
+    ));
 }
+
 function updateAward($id, $amount) {
-  $db = myPdo();
-  $request = $db->prepare("UPDATE `bets` SET `amount`= :award WHERE `idBet` = :idBet");
+    $db = myPdo();
+    $request = $db->prepare("UPDATE `bets` SET `amount`= :award WHERE `idBet` = :idBet");
     $request->execute(array(
-      'award' => $amount,
+        'award' => $amount,
         'idBet' => $id
-  ));
+    ));
 }
-function getBetHistory($id)
-{
-  $db = myPdo();
-  $request = $db->prepare("SELECT * FROM `bets` WHERE `idUser` = :idUser ORDER BY `dateBet` DESC");
+
+function getBetHistory($id) {
+    $db = myPdo();
+    $request = $db->prepare("SELECT * FROM `bets` WHERE `idUser` = :idUser ORDER BY `dateBet` DESC");
     $request->execute(array(
-      'idUser' => $id
-  ));
+        'idUser' => $id
+    ));
 
-  return $request;
-}
-function getUserByUsername($uName)
-{
-  $db = myPdo();
-  $request = $db->prepare("SELECT * FROM `users` WHERE `username` = :username");
-  $request->execute(array(
-      'username' => $uName
-  ));
-
-  return $request;
-
+    return $request;
 }
 
-function getIdByUsername($uName)
-{
-  $db = myPdo();
-  $request = $db->prepare("SELECT `idUser` FROM `users` WHERE `username` = :username");
-  $request->execute(array(
-      'username' => $uName
-  ));
+function getUserByUsername($uName) {
+    $db = myPdo();
+    $request = $db->prepare("SELECT * FROM `users` WHERE `username` = :username");
+    $request->execute(array(
+        'username' => $uName
+    ));
 
-  return $request->fetch()[0];
-
+    return $request;
 }
-function identifyWinner($choiceLeft, $choiceRight)
-{
-  $left = 1;
-  $right = 2;
-  $tie = 3;
 
-  if($choiceLeft == "scissorL")
-  {
-    if($choiceRight == "leafR")
-    {
-      return $left;
+function getIdByUsername($uName) {
+    $db = myPdo();
+    $request = $db->prepare("SELECT `idUser` FROM `users` WHERE `username` = :username");
+    $request->execute(array(
+        'username' => $uName
+    ));
+
+    return $request->fetch()[0];
+}
+
+function identifyWinner($choiceLeft, $choiceRight) {
+    $left = 1;
+    $right = 2;
+    $tie = 3;
+
+    if ($choiceLeft == "scissorL") {
+        if ($choiceRight == "leafR") {
+            return $left;
+        } elseif ($choiceRight == "rockR") {
+            return $right;
+        } else {
+            return $tie;
+        }
+    } elseif ($choiceLeft == "leafL") {
+        if ($choiceRight == "rockR") {
+            return $left;
+        } elseif ($choiceRight == "scissorR") {
+            return $right;
+        } else {
+            return $tie;
+        }
+    } elseif ($choiceLeft == "rockL") {
+        if ($choiceRight == "scissorR") {
+            return $left;
+        } elseif ($choiceRight == "leafR") {
+            return $right;
+        } else {
+            return $tie;
+        }
     }
-    elseif ($choiceRight == "rockR") {
-      return $right;
-    }
-    else {
-      return $tie;
-    }
-  }
-  elseif ($choiceLeft == "leafL")
-   {
-     if($choiceRight == "rockR")
-     {
-       return $left;
-     }
-     elseif ($choiceRight == "scissorR") {
-       return $right;
-     }
-     else {
-       return $tie;
-     }
-  }
-  elseif ($choiceLeft== "rockL")
-   {
-     if($choiceRight == "scissorR")
-     {
-       return $left;
-     }
-     elseif ($choiceRight == "leafR") {
-       return $right;
-     }
-     else {
-       return $tie;
-     }
-  }
-
 }
+
 ?>

@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-left" href="index.php" style="margin-top: 10px;"><img src="images/icon.ico" style="height: 30px; width: 30px; margin-right: 20px;" alt=""></a>
+            <a class="navbar-left" href="index.php" style="margin-top: 10px;"><img src="images/logos/logoShifoumi.png" style="height: 30px; width: 30px; margin-right: 20px;" alt=""></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" style="color: white;">
             <ul class="nav navbar-nav">

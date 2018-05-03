@@ -19,7 +19,7 @@
         </style></noscript>
         <div class="col-md-12 col-xs-12">
             <?php include 'views/v_nav.php'; ?>
-            <div class="col-md-12 col-xs-12" style="background-color: #2a2b2b; color: white; height: 800px;">
+            <div class="col-md-12 col-xs-12" style="background-color: #2a2b2b; color: white; min-height: 800px;">
                 <ul class="nav nav-pills" >
                     <li><a data-toggle="pill" href="#edit" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Edit account</a></li>
                     <li><a data-toggle="pill" href="#history" style="color: white; text-decoration: none;" onmouseover="this.style.color = 'white'; this.style.background = '#419222';" onmouseout="this.style.color = 'white'; this.style.background = 'none'">Bets history</a></li>
@@ -85,7 +85,7 @@
                     </div>
                     <div id="history" class="tab-pane fade">
                         <div class="col-md-12 col-xs-12" style="margin-top: 20px;">
-                            <legend style="color: white;">Bets history</legend> 
+                            <legend style="color: white;">Bets history</legend>
                             <table class="table" id="tableBestPlayer">
                                 <thead>
                                 <th class="col-xs-1">Amount bet</th>

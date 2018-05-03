@@ -32,8 +32,8 @@ function Anim(optionGauche, optionDroite) {
     MainMoveG.src = directory.concat("rockL".concat(type));
     MainMoveD.src = directory.concat("rockR".concat(type));
 
-    handLeft = Hand(20, 10, 1, MainMoveG);
-    handRight = Hand(20, 240, 1, MainMoveD);
+    handLeft = Hand(10, 5, 1, MainMoveG);
+    handRight = Hand(10, 210, 1, MainMoveD);
 }
 
 var cpt = 0;
@@ -81,7 +81,7 @@ function Hand(apy, apx, avy, aimg) {
         },
 
         displayImg: function () {
-            ctx.drawImage(this.img, this.px, this.py, 50, 50);
+            ctx.drawImage(this.img, this.px, this.py, 80, 65);
         },
 
         changeImage: function (option) {
@@ -95,17 +95,19 @@ function Hand(apy, apx, avy, aimg) {
 //http://jsfiddle.net/laelitenetwork/puJ6G/
 $('.btn-number').click(function(e){
     e.preventDefault();
-    
+
+
     fieldName = $(this).attr('data-field');
     type      = $(this).attr('data-type');
     var input = $("input[name='"+fieldName+"']");
     var currentVal = parseInt(input.val());
     if (!isNaN(currentVal)) {
         if(type == 'minus') {
-            
             if(currentVal > input.attr('min')) {
-                input.val(currentVal - 50).change();
-            } 
+              currentVal -= 50;
+                input.val(currentVal).change();
+                $("#benefit").text("Benefit : " + currentVal*2);
+            }
             if(parseInt(input.val()) == input.attr('min')) {
                 $(this).attr('disabled', true);
             }
@@ -114,10 +116,12 @@ $('.btn-number').click(function(e){
         } else if(type == 'plus') {
 
             if(currentVal < input.attr('max')) {
-                input.val(currentVal + 50).change();
+                currentVal += 50;
+                input.val(currentVal).change();
+                $("#benefit").text("Benefit : " + currentVal*2);
             }
             if(parseInt(input.val()) == input.attr('max')) {
-                $(this).attr('disabled', true);               
+                $(this).attr('disabled', true);
             }
             $("#minus").attr('disabled', false);
         }
@@ -129,11 +133,11 @@ $('.input-number').focusin(function(){
    $(this).data('oldValue', $(this).val());
 });
 $('.input-number').change(function() {
-    
+
     minValue =  parseInt($(this).attr('min'));
     maxValue =  parseInt($(this).attr('max'));
     valueCurrent = parseInt($(this).val());
-    
+
     name = $(this).attr('name');
     if(valueCurrent >= minValue) {
         $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
@@ -147,14 +151,14 @@ $('.input-number').change(function() {
         alert('Sorry, the maximum value was reached');
         $(this).val($(this).data('oldValue'));
     }
-    
-    
+
+
 });
 $(".input-number").keydown(function (e) {
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
              // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) || 
+            (e.keyCode == 65 && e.ctrlKey === true) ||
              // Allow: home, end, left, right
             (e.keyCode >= 35 && e.keyCode <= 39)) {
                  // let it happen, don't do anything
